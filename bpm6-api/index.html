@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html data-html-server-rendered="true" lang="en" data-vue-tag="%7B%22lang%22:%7B%22ssr%22:%22en%22%7D%7D">
+  <head>
+    <title>uengine6</title><meta name="gridsome:hash" content="9d0f9e59b2512277ae929734d4e6524636f487f6"><meta data-vue-tag="ssr" charset="utf-8"><meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.23"><meta data-vue-tag="ssr" data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no"><meta data-vue-tag="ssr" data-key="og:url" name="og:url" content="undefined/process-example/sub-process/"><meta data-vue-tag="ssr" name="description" content="undefined"><meta data-vue-tag="ssr" data-key="og:title" name="og:title" content="API Reference"><meta data-vue-tag="ssr" data-key="twitter:title" name="twitter:title" content="API Reference"><meta data-vue-tag="ssr" data-key="og:description" name="og:description" content="undefined"><meta data-vue-tag="ssr" data-key="twitter:description" name="twitter:description" content="undefined"><meta data-vue-tag="ssr" data-key="og:type" name="og:type" content="website"><meta data-vue-tag="ssr" data-key="twitter:card" name="twitter:card" content="summary_large_image"><meta data-vue-tag="ssr" data-key="og:image" name="og:image" content="undefined/logo.jpg"><meta data-vue-tag="ssr" data-key="twitter:image" name="twitter:image" content="undefined/logo.jpg"><link data-vue-tag="ssr" rel="icon" href="data:,"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.11eb2075e7e73ee87589df7326cf802e.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.11eb2075e7e73ee87589df7326cf802e.png"><link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.11eb2075e7e73ee87589df7326cf802e.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.11eb2075e7e73ee87589df7326cf802e.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.11eb2075e7e73ee87589df7326cf802e.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.11eb2075e7e73ee87589df7326cf802e.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.11eb2075e7e73ee87589df7326cf802e.png"><link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.11eb2075e7e73ee87589df7326cf802e.png"><link rel="preload" href="/assets/css/0.styles.4dff5edb.css" as="style"><link rel="preload" href="/assets/js/app.c49723a5.js" as="script"><link rel="preload" href="/assets/js/page--src--templates--markdown-page-vue.60bd6399.js" as="script"><link rel="prefetch" href="/assets/js/page--src--pages--404-vue.95e1419d.js"><link rel="prefetch" href="/assets/js/page--src--pages--index-vue.80f1d01e.js"><link rel="prefetch" href="/assets/js/search.26e18886.js"><link rel="stylesheet" href="/assets/css/0.styles.4dff5edb.css"><noscript data-vue-tag="ssr"><style>.g-image--loading{display:none;}</style></noscript>
+  </head>
+  <body >
+    <div data-server-rendered="true" id="app" class="font-sans antialiased text-ui-typo bg-ui-background"><div class="flex flex-col justify-start min-h-screen"><header class="sticky top-0 z-10 w-full border-b bg-ui-background border-ui-border"><div class="py-2 border-t-2 border-ui-primary"><div class="container"><div class="flex items-center justify-between -mx-2 sm:-mx-4"><div class="flex flex-col items-center px-2 mr-auto sm:px-4 sm:flex-row"><a href="/" title="Home" class="flex items-center active"><img src="data:image/svg+xml,%3csvg fill='none' viewBox='0 0 2560 805' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3cdefs%3e%3cfilter id='__svg-blur-fe5358762bd6ffbd04c4562bad2aee13'%3e%3cfeGaussianBlur in='SourceGraphic' stdDeviation='40'/%3e%3c/filter%3e%3c/defs%3e%3cimage x='0' y='0' filter='url(%23__svg-blur-fe5358762bd6ffbd04c4562bad2aee13)' width='2560' height='805' xlink:href='data:image/png%3bbase64%2ciVBORw0KGgoAAAANSUhEUgAAAEAAAAAUCAYAAAA9djs/AAAACXBIWXMAAAsSAAALEgHS3X78AAALSElEQVRYw71YC1SVVRa%2bPKpZTZn2WARqU83kJChP0RBFQCXjcrnyhvvgdYkUDFNQ4PoGNFEUTcAaRAVN8v1WFAQEAXkI6mCGT8LGvGVZLcdK7%2b%2be7xzOpZvLWq41zfxrfe59zr/32Xt/Z59zf5TJ/kdPtErVK9VqmRYwn2dzJmjF2GT7e4/WbM0%2bHzH3hzylblFcrnfXyLa4RHDdf/omK%2bXs7dYhC/ZbhedUWEflHrPWrDhuHb3qhFXsmibruIKTlswOugx6b6JmBSFpS0gLs8QtAMtoNg9oe2HxSASI94I0y0clro98k78ZgX3PdqdALte5x8oIJRH0q0MmPtLCJhLiCptl0dpYUzCLB4P/XqIP3V0zadY5FuY%2bD3bU7xUq7BlxVuYE8ueAw3guWeGyU/xf2VPzKizRAVMDZ2/TowPS0AGZ6IBMdEAGOiADu56J4p17SWi2MivWwkyfjaDzzcbvAnuBLUA5sB8IFe38GEvStMPC3tK8e4TuAfzD9B72VibdjAQrs2No9bBN6XuOOnhyWe4cwg03u4bHlrlF5jBdMX1TZuTiGopccgyoJPXyWope1Uixa05SUtlFAgHfxRc2/43ZQlqp3J4xsd8PCUQg6FlgmZizh94B3AQWAX5AJDD0N7rC8mEtDPkiEPbAO3PSLR9yJ5lImAiswzjHRBzf9Z2OCr7Afnu/J3Y4Kq5sdw6ictfQV9lciH5XmSavgSKWHK1S59XaalbUDdTm1/ePW9OkTyrtIhTenrCm7XF%2bF8z50BRoOAL4QjYCz4u5GiAb8xVIwO2B8z0J71hSxZDVwBjhE4i5w5C7RMe8DKyF/wzhl47xQowPQq7H%2bCnhx4g9zGOp1QmC0HDYse4bAYwCHpc12jvxBA47ePHEDw7zyWh0CaA9wydVL/PP4EWpM3f0C8s6dFGb34AOqImPWd34LDAIBLwSX3CykZGgK2wpY7YJRR0W0XGJ1iKJfARdIYJrML4OvArUA23AAeAdYTsHuAC7ZyEXA0eh94P8HEl7QwYBl1GgNTCLdZLwuwjkYu450V1R0B2F/howBDgHjAN2cGJUKifYPN3HfvXQEbxlql93/Uul/agfjg0bSyBkFJt7P0rPSVDlHhgTk19PU9Z/Su%2bsO0vJpedp6oZzlFh8hqaUnKOkjZ%2bBhOZUs/b9K8ACPwn4aFmSKlWp2LWzSGIa5p1ZgqKQTKBAvHdlXQD7YbDrEXNsnW7MPSmKqRFxmoERYo2lwCyMM4EL4pi9D5wSdxHrxjXAKrxnG%2bAi29ZvqKzBwZkTUP%2b604auYe5U87prkamQr4ND875VhsUz3SH5ylDPuZe8xi7s8RybfWN04PILvgmFDf4JRa2RiWtbv0wuOUuJBQ0KnoxGW4gAenHORyMgG7Oi%2b6OYNnYfPHCGM9jZFPpooEHoBUi8Ev6s/bPE3GT4VwudEeAj9JXAdIwXiiPTn90v8H8e8iX4nDCLlwq7jbJWR2fe%2bs3Dnbw6hrtQo73jNyftXQayue5QjeOtoGi6oI346nSnMpN6fJLoqsfbdNkj4V6Xx7t0yZ53iezNUdZemXu6JmVX0YT5hxPnusue0ao1X2tZW2N3EOhl3spqdTIwILq3M5byc69SRbM52Ogx/kQkNxY4w34VgPXQt%2bHdR%2bzsigstFHqr6IzzwAThVwR9AS9arb4KeGHsAns/8Z4dqwChs3tkQd8OdLi6nLg20p1anZynm%2bauhCZU/BA8hYo/CJO2dIYQfRNJdBO4Hk70ZQR9/c9goq437B1SD631yKkn59TtdcwvRq3yQ%2bC9CPaaSHg8Ah6EtBHB2Rlnl9Me2NViPgA6s5kq3g/BHGtfC6zxNvsVAd6D3sUvL5Xq78BCYZsDOIg4aqwXaeoSjCu0vT%2bzU0ydpe2NWw7JLtsneaGfejon/muMO50Z4dJyPlDxJzZ3Liw5yjB5Bh1Pibs355iSZu5XXq%2buD9B%2b2%2b6v6G6Rx3Y1KHX3Oj00GUXvr3ROP0Tu6bvvjtLvG8583WZusfyjvk5RdHRcdPS4WK32NeitkJP%2bq0/03m%2bFl381%2bcUE79p78onUHTiKs3cmUte/Myjt8sWwNMr7OPRuRo2SPqpWVtAXga7XOxWev3jSE45p%2by97ZNWQ2%2bw9s9iMo77SKi4yxAIM2yKQHWDDgORtUYjtGyNG2Ng895ydz9ixA2M0moH2Q4YMfGXwYFsUZuvq5GQXHhJi4z1mjO14b2872NvAZnFkWFi7OjLyNPQMV0fHARGhoXawt4uPibEZ8PTTdo729i8mxMXZYC1buxdesIWdTbBSaTfIxsZupJub3dvx8XaaqCgbkc8LwDNC/zMv47vRUeNo2pv0Y5HrcX4fBGcu7lFm09ZFCffSjgXcX10bQrd7QoluofVvR1FPa8AuZueRuWO75%2bJ6Vjy/kFTaOEtxLh0BQzSDSnUjWuhI4sZ7KSmGxVlZhpTkZANIMczV6w0L5s0zoEDDrJkzDSjK8G5y8o1pSUncHsV/lpOV1ZU6Y0ZXVHj4BeYHYm6wd8xn6ZIlhtmpqQZVRIQhMz3dkLVgAfMzgBAD/AxpM2YY4Mfja3/J5UvgNjuKsp/LhvGkb%2be75uLLh25kTSht8Mu%2bWa9Np4V7g6TMo0oqq1SWf386IKfnlHzplSbF8ttnvRep80oWDE%2bvYsXfQfvzM%2biXlPuYIGAkdohiNRqKEUDShGLoRH091dbUUH1dHS3PzaXmkyfpWFUVbSotpcuXLtGa1auptaWF9uzeTSGTJ3PfikOHCIUQCqba6mpKT0ujULwr37KFGhsa%2bJpsrbbWVr7utk8%2boQ%2bLivja7F3WwoUEEngObD0UTiCIyY9k/85151%2bAdzc5WN8pcG7vnpZC1T5LjYUfxNzT1wVSzmFlB92S81b5cG8SJ8tTlWLrPX3VNfmSnTRu7lbe%2bt5zyq3R%2bqbvdvaldR%2bMS5BGQEJgCe0tNTU2Svv37ZNONjVJq/PzJSQpHa2okLZv3Sq1nzolVVVWSp%2bdPy%2bVf/yxFCiXSzNSUqTdu3ZJKEBi69UdPy4lT5kiBSkU3B4dw9fNXrRIAlHcp%2bHECWnnjh1SXW2tBIKkxdnZ3IblgM2R0JV3GRmm7w7Z2cRY/lPYMi1%2bxOHxy%2b5vTc4kfaWC5h6eTKdaFLdvdQbcvH464Ifr7fLvgVsXGxU/XWsLojPHAluoexTf9baqELbzvyJAFM%2bB4Mbw4GDjqbY249byciN2y7ihpMR4uqPDOH/uXOM7CQlGJG789Nw547nOTuPmTZuM/n5%2bRnSEcV1xsRHdwNdh/mUbNxpBjBGdY9yyeTNfL3/FCmNLc7OxZN0649EjR4xlpaV8zOzQOdwXBBq1vfn83EfAnQIXTsJxvYaTsPPN5dOWrtfcSasM%2bGnDEeVPhvYA4/XTcvqiTX7/Wqv8/ufNculaC8bN/hfvnfcdzO%2bMqkjT2TcRMBI7QxwIxKQuNpaQABUVFNCunTupAK3O2jpv2TIKDQqiRJ2OVixfTisZ8vIoG20bFhxMJcXFNE%2bv577sWK0tLKQD%2b/bRqpUrCfcBHTpwgNtMTUykzWVl/OjMnD6d%2b8yfM4dAOiUgdl8%2bACuexUOexbIfBQGy7R/IKIkfZVlqh%2b%2bz6XuCBjceDxz8Vbt88Oet8kE9zfJB3U3ygVcb/e0u1fsPbjqo5Mei7oiGF71k3Rzzv%2bkHADr2R4iQOrzToQt02FWdr5eX7i1ItKVO4e%2bvAzk6XFxcD3jrLY7gwEBuHy/emdZhfuM8PXUK2ODXQOc1erRuoq%2bvDpegbqKPj27cmDF8XXSMLkSp5Guz2AymNYB49s0BuPOE90zK5TKnOEbW%2bFKJxaP%2bpoIMbtvd5A/I//j/ovo/PP8B50mg6rCvPj4AAAAASUVORK5CYII=' /%3e%3c/svg%3e" width="2560" data-src="/assets/static/logo-bpm.42db587.f97ece4bf4f73c341740a2eef50c0679.png" data-srcset="/assets/static/logo-bpm.82a2fbd.f97ece4bf4f73c341740a2eef50c0679.png 480w, /assets/static/logo-bpm.cbab2cf.f97ece4bf4f73c341740a2eef50c0679.png 1024w, /assets/static/logo-bpm.2665e34.f97ece4bf4f73c341740a2eef50c0679.png 1920w, /assets/static/logo-bpm.42db587.f97ece4bf4f73c341740a2eef50c0679.png 2560w" data-sizes="(max-width: 2560px) 100vw, 2560px" class="g-image g-image--lazy g-image--loading" style="width:200px;"><noscript><img src="/assets/static/logo-bpm.42db587.f97ece4bf4f73c341740a2eef50c0679.png" class="g-image g-image--loaded" width="2560"></noscript></a></div><div class="w-full px-2 sm:px-4 max-w-screen-xs"><!----></div><div class="flex items-center justify-end px-2 sm:px-4"><!----><!----><!----><button aria-label="Toggle Darkmode" title="Toggle Darkmode" class="ml-2 sm:ml-8"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></button></div></div></div></div></header><main class="container relative flex flex-wrap justify-start flex-1 w-full bg-ui-background"><!----><div class="w-full pb-24"><div class="flex flex-wrap items-start justify-start"><div class="order-2 w-full md:w-1/4 sm:pl-4 md:pl-6 lg:pl-8 sticky" style="top:4rem;"><div class="mt-8 sm:pl-4 md:pl-6 md:pt-12 lg:pl-8 sm:pb-16 sm:border-l border-ui-border md:mt-0"><h3 class="pt-0 mt-0 text-sm tracking-wide uppercase border-none">On this page</h3><div><ul><li class="font-semibold depth-2"><a href="/bpm6-api/#definition-관리" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          Definition 관리
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definition" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition
+        </a></li><li class="depth-3"><a href="/bpm6-api/#versions" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /versions/**
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definition-1" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition/**
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definitionraw" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition/raw/**
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definitionsystem" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition/system/**
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definitionsystem-1" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition/system
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definitionmap" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition/map
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definitionreleasereleaseversion" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition/release/{releaseVersion}
+        </a></li><li class="depth-3"><a href="/bpm6-api/#definitionupload" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /definition/upload
+        </a></li><li class="border-t border-dashed border-ui-border pt-2 mt-2 font-semibold depth-2"><a href="/bpm6-api/#instance-관리" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          Instance 관리
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instance" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceid" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceideventlist" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}/eventList
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceidactivitytracingtagbacktohere" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}/activity/{tracingTag}/backToHere
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceidvariables" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}/variables
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceidstatus" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}/status
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceidrunning" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}/running
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceidcompleted" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}/completed
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstidvariablevarname" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instId}/variable/{varName}
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstidtasktaskidvariablevarname" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instId}/task/{taskId}/variable/{varName}
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstidrole-mappingrolename" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instId}/role-mapping/{roleName}
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceinstanceidfire-message" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/{instanceId}/fire-message
+        </a></li><li class="depth-3"><a href="/bpm6-api/#instanceshutdown" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /instance/shutdown
+        </a></li><li class="depth-3"><a href="/bpm6-api/#dry-run" class="relative flex items-center py-1 text-sm transition transform hover:translate-x-1 pl-2"><span class="absolute w-2 h-2 -ml-3 rounded-full opacity-0 bg-ui-primary transition transform scale-0 origin-center"></span>
+          /dry-run/**
+        </a></li></ul></div></div></div><div class="order-1 w-full md:w-3/4"><div class="content"><h1 id="api-reference"><a href="#api-reference" aria-hidden="true"><span class="icon icon-link"></span></a>API Reference</h1>
+<ul>
+<li><strong><a href="https://en.wikipedia.org/wiki/HATEOAS" target="_blank" rel="noopener noreferrer">uEngine6 의 모든 API 들은 REST MM 3 인 Hateoas(HAL) 수준을 준수한다</a></strong></li>
+</ul>
+<h2 id="definition-관리"><a href="#definition-%EA%B4%80%EB%A6%AC" aria-hidden="true"><span class="icon icon-link"></span></a>Definition 관리</h2>
+<h3 id="definition"><a href="#definition" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 저장 된 Definition 목록을 확인 할 수 있다.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET http://localhost:8088/definition</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_embedded"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">"instantiation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/instance"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/raw/definitions/qwer.json"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/qwer.bpmn"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"qwer.bpmn"</span><span class="token punctuation">,</span>
+                <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"qwer.bpmn"</span><span class="token punctuation">,</span>
+                <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            ...
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="versions"><a href="#versions" aria-hidden="true"><span class="icon icon-link"></span></a><code>/versions/**</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: Definition의 버전 목록.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET http://localhost:8088/versions/test/test.bpmn</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_embedded"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">"instantiation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/instance"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/raw/archive/test/test.bpmn/1.0.json"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/archive/test/test.bpmn/1.0.bpmn"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"1.0.bpmn"</span><span class="token punctuation">,</span>
+                <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"archive/test/test.bpmn/1.0.bpmn"</span><span class="token punctuation">,</span>
+                <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            ...
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="definition-1"><a href="#definition-1" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition/**</code></h3>
+<ul>
+<li><strong>Method</strong>: PUT</li>
+<li><strong>Description</strong>: 폴더 이름 변경 및 이동</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http PUT :9093/definition/new%20folder <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"new folder2"</span> <span class="token assign-left variable">path</span><span class="token operator">=</span><span class="token string">"new folder2"</span></code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/new%20folder2"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"new folder2"</span><span class="token punctuation">,</span>
+    <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"definitions/new folder2"</span><span class="token punctuation">,</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>Description</strong>: 폴더 생성.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http POST localhost:9093/definition <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"new folder"</span> <span class="token assign-left variable">directory</span><span class="token operator">=</span>true</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/new%20folder"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"new folder"</span><span class="token punctuation">,</span>
+    <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"definitions/new folder"</span><span class="token punctuation">,</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li><strong>Method</strong>: DELETE</li>
+<li><strong>Description</strong>: definition 삭제</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http DELETE localhost:9093/definition/new%20folder</code></pre>
+<h3 id="definitionraw"><a href="#definitionraw" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition/raw/**</code></h3>
+<ul>
+<li><strong>Method</strong>: POST, PUT</li>
+<li><strong>Description</strong>: Definition 정의 저장 및 수정</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh"><span class="token comment"># @이후에는 bpmn 파일 경로</span>
+http POST :9093/definition/raw/test.bpmn <span class="token assign-left variable">definition</span><span class="token operator">=</span>@test-origin.bpmn
+http PUT :9093/definition/raw/test.bpmn <span class="token assign-left variable">definition</span><span class="token operator">=</span>@test-origin.bpmn</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"instantiation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/instance"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/raw/definitions/test.json"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/test.bpmn"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"test.bpmn"</span><span class="token punctuation">,</span>
+    <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"definitions/test.bpmn"</span><span class="token punctuation">,</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: Definition 정의 수신.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9093/definition/raw/test.bpmn </code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>definitions</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>bpmn</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/BPMN/20100524/MODEL<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>bpmndi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/BPMN/20100524/DI<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>uengine</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://uengine<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>dc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/DD/20100524/DC<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>di</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/DD/20100524/DI<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Definitions_0bfky9r<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>test-woori<span class="token punctuation">"</span></span> <span class="token attr-name">targetNamespace</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://bpmn.io/schema/bpmn<span class="token punctuation">"</span></span> <span class="token attr-name">exporter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bpmn-js (https://demo.bpmn.io)<span class="token punctuation">"</span></span> <span class="token attr-name">exporterVersion</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>16.4.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>collaboration</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Collaboration_1uis03l<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>participant</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Participant_1fh7nmt<span class="token punctuation">"</span></span> <span class="token attr-name">processRef</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Process_1oscmbn<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>extensionElements</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">uengine:</span>properties</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">uengine:</span>json</span><span class="token punctuation">></span></span>{}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">uengine:</span>json</span><span class="token punctuation">></span></span><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>definitions</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>bpmn</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/BPMN/20100524/MODEL<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>bpmndi</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/BPMN/20100524/DI<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>uengine</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://uengine<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>dc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/DD/20100524/DC<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>di</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.omg.org/spec/DD/20100524/DI<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Definitions_0bfky9r<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>test-woori<span class="token punctuation">"</span></span> <span class="token attr-name">targetNamespace</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://bpmn.io/schema/bpmn<span class="token punctuation">"</span></span> <span class="token attr-name">exporter</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bpmn-js (https://demo.bpmn.io)<span class="token punctuation">"</span></span> <span class="token attr-name">exporterVersion</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>16.4.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>collaboration</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Collaboration_1uis03l<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>participant</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Participant_1fh7nmt<span class="token punctuation">"</span></span> <span class="token attr-name">processRef</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Process_1oscmbn<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">bpmn:</span>extensionElements</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">uengine:</span>properties</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">uengine:</span>json</span><span class="token punctuation">></span></span>{}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token namespace">uengine:</span>json</span><span class="token punctuation">></span></span>
+          <span class="token comment">&lt;!-- 이하 생략 --></span></code></pre>
+<h3 id="definitionsystem"><a href="#definitionsystem" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition/system/**</code></h3>
+<ul>
+<li><strong>Method</strong>: POST, PUT</li>
+<li><strong>Description</strong>: 외부 시스템 등록.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http PUT localhost:9093/definition/system/test <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"test"</span> <span class="token assign-left variable">description</span><span class="token operator">=</span><span class="token string">"test"</span> <span class="token assign-left variable">spec</span><span class="token operator">=</span><span class="token string">"test"</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">"test"</span>
+http POST localhost:9093/definition/system/test <span class="token assign-left variable">name</span><span class="token operator">=</span><span class="token string">"test"</span> <span class="token assign-left variable">description</span><span class="token operator">=</span><span class="token string">"test"</span> <span class="token assign-left variable">spec</span><span class="token operator">=</span><span class="token string">"test"</span> <span class="token assign-left variable">url</span><span class="token operator">=</span><span class="token string">"test"</span></code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"instantiation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/instance"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/raw/definitions/system/test.json"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/system/test.json"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"test.json"</span><span class="token punctuation">,</span>
+    <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"definitions/system/test.json"</span><span class="token punctuation">,</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="definitionsystem-1"><a href="#definitionsystem-1" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition/system</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 외부 시스템 목록 수신.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET localhost:9093/definition/system</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_embedded"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"definitions"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">"instantiation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/instance"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/raw/definitions/system/restaurant.json"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/system/restaurant.json"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"restaurant.json"</span><span class="token punctuation">,</span>
+                <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"definitions/system/restaurant.json"</span><span class="token punctuation">,</span>
+                <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">"instantiation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/instance"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/raw/definitions/system/history.json"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                    <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/system/history.json"</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"history.json"</span><span class="token punctuation">,</span>
+                <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"definitions/system/history.json"</span><span class="token punctuation">,</span>
+                <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            ...
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="definitionmap"><a href="#definitionmap" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition/map</code></h3>
+<ul>
+<li><strong>Method</strong>: POST, PUT</li>
+<li><strong>Description</strong>: Process Definition Map 등록 및 수정.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http POST http://localhost:9093/definition/map mega_proc_list:<span class="token operator">=</span><span class="token string">'[
+    {
+        "id": "test",
+        "label": "test",
+        "major_proc_list": [
+            {
+                "id": "main",
+                "label": "main",
+                "sub_proc_list": [
+                    {
+                        "id": "Sales"
+                    }
+                ]
+            }
+        ]
+    }
+]'</span></code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"instantiation"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/instance"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"raw"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/raw/definitions/map.json"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9093/definition/definitions/map.json"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"directory"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"map.json"</span><span class="token punctuation">,</span>
+    <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"definitions/map.json"</span><span class="token punctuation">,</span>
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+<span class="token punctuation">}</span></code></pre>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: Proecss Definition Map 수신</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET localhost:9093/definition/map</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"mega_proc_list"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+            <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"test"</span><span class="token punctuation">,</span>
+            <span class="token property">"major_proc_list"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"main"</span><span class="token punctuation">,</span>
+                    <span class="token property">"label"</span><span class="token operator">:</span> <span class="token string">"main"</span><span class="token punctuation">,</span>
+                    <span class="token property">"sub_proc_list"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                        <span class="token punctuation">{</span>
+                            <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"Sales"</span>
+                        <span class="token punctuation">}</span>
+                    <span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="definitionreleasereleaseversion"><a href="#definitionreleasereleaseversion" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition/release/{releaseVersion}</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 버전 릴리즈 및 해당 버전 다운로드 - 브라우저에서 동작 가능</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>실행</strong> </li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET localhost:9093/definition/release/v1.0</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json">HTTP/<span class="token number">1.1</span> <span class="token number">200</span>
+Connection<span class="token operator">:</span> keep-alive
+Content-Disposition<span class="token operator">:</span> attachment; filename=v1.<span class="token number">0</span>.zip
+Content-Length<span class="token operator">:</span> <span class="token number">117621</span>
+Content-Type<span class="token operator">:</span> application/octet-stream
+Date<span class="token operator">:</span> Mon<span class="token punctuation">,</span> <span class="token number">09</span> Sep <span class="token number">2024</span> <span class="token number">06</span><span class="token operator">:</span><span class="token number">40</span><span class="token operator">:</span><span class="token number">46</span> GMT
+Keep-Alive<span class="token operator">:</span> timeout=<span class="token number">60</span>
+
+
+
++-----------------------------------------+
+| NOTE<span class="token operator">:</span> binary data not shown in terminal |
++-----------------------------------------+</code></pre>
+<h3 id="definitionupload"><a href="#definitionupload" aria-hidden="true"><span class="icon icon-link"></span></a><code>/definition/upload</code></h3>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>Description</strong>: 릴리즈 된 버전 파일 업로드</li>
+<li><strong>Consumes</strong>: multipart/form-data</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+</ul>
+<h2 id="instance-관리"><a href="#instance-%EA%B4%80%EB%A6%AC" aria-hidden="true"><span class="icon icon-link"></span></a>Instance 관리</h2>
+<h3 id="instance"><a href="#instance" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance</code></h3>
+<ul>
+<li><strong>Method</strong>: POST, PUT</li>
+<li><strong>Description</strong>: 인스턴스 실행.</li>
+<li><strong>Consumes</strong>: application/json;charset=UTF-8</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http POST :9094/instance <span class="token string">'processDefinitionId=test/troubleTicket'</span> <span class="token string">'roleMappings[0][name]=initiator'</span> <span class="token string">'roleMappings[0][endpoints][0]=manager'</span> <span class="token string">'roleMappings[0][resourceNames][0]=Initiator'</span></code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"definition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"rawDefinition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/raw/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"role-mapping"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/role-mapping/{roleName}"</span><span class="token punctuation">,</span>
+            <span class="token property">"templated"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"stop"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"suspend"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"variables"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/variables"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"corrkey"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"defVer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"instanceId"</span><span class="token operator">:</span> <span class="token string">"22"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Nonamenull"</span><span class="token punctuation">,</span>
+    <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Running"</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="instanceinstanceid"><a href="#instanceinstanceid" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 인스턴스 정보 수신</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"definition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"rawDefinition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/raw/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"role-mapping"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/role-mapping/{roleName}"</span><span class="token punctuation">,</span>
+            <span class="token property">"templated"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"stop"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"suspend"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"variables"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/variables"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"corrkey"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"defVer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"instanceId"</span><span class="token operator">:</span> <span class="token string">"22"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Nonamenull"</span><span class="token punctuation">,</span>
+    <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Running"</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="instanceinstanceideventlist"><a href="#instanceinstanceideventlist" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}/eventList</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 인스턴스에 사용 가능 한 이벤트 목록</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/eventList</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+        <span class="token property">"tracingTag"</span><span class="token operator">:</span> <span class="token string">"Event_045vefp"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span></code></pre>
+<h3 id="instanceinstanceidactivitytracingtagbacktohere"><a href="#instanceinstanceidactivitytracingtagbacktohere" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}/activity/{tracingTag}/backToHere</code></h3>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>Description</strong>: 해당 액티비티로 RollBack</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http POST :9094/instance/22/activity/Activity_0tpln90/backToHerehttp POST :9094/instance/22/activity/Activity_0tpln90/backToHere</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"definition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"rawDefinition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/raw/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"role-mapping"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/role-mapping/{roleName}"</span><span class="token punctuation">,</span>
+            <span class="token property">"templated"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"stop"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"suspend"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"variables"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/variables"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"corrkey"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"defVer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"instanceId"</span><span class="token operator">:</span> <span class="token string">"22"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Nonamenull"</span><span class="token punctuation">,</span>
+    <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Running"</span>
+<span class="token punctuation">}</span><span class="token punctuation">{</span>
+    <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"definition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"rawDefinition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/definition/raw/test/troubleTicket"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"role-mapping"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/role-mapping/{roleName}"</span><span class="token punctuation">,</span>
+            <span class="token property">"templated"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"self"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"stop"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"suspend"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/stop"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"variables"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"http://localhost:9094/instance/22/variables"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"corrkey"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"defVer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"instanceId"</span><span class="token operator">:</span> <span class="token string">"22"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Nonamenull"</span><span class="token punctuation">,</span>
+    <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Running"</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="instanceinstanceidvariables"><a href="#instanceinstanceidvariables" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}/variables</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 인스턴스 변수 목록</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/variables</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">":MESSAGE_event:prop"</span><span class="token operator">:</span> <span class="token string">"Event_045vefp"</span><span class="token punctuation">,</span>
+    <span class="token property">":MESSAGE_onHumanActivityResultActivity_0bk0z80:prop"</span><span class="token operator">:</span> <span class="token string">"Activity_0bk0z80"</span><span class="token punctuation">,</span>
+    <span class="token property">":MESSAGE_onHumanActivityResultActivity_0tpln90:prop"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token property">":_due date:prop"</span><span class="token operator">:</span> <span class="token number">1727593203856</span><span class="token punctuation">,</span>
+    <span class="token property">":_roleMapping_of_initiator"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"assignParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"assignType"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"birthday"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"companyId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"cursor"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingOption"</span><span class="token operator">:</span> <span class="token number">-1</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingParameters"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"emailAddress"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"endpoint"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"extendedProperties"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"group"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"groupId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"groupName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"instanceMessengerId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"isReferencer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"locale"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"male"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"initiator"</span><span class="token punctuation">,</span>
+        <span class="token property">"nickName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"resourceName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userFirstName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userLastName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userMidddleName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userPortrait"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">":_roleMapping_of_manager"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"assignParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"assignType"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"birthday"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"companyId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"cursor"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingOption"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingParameters"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"emailAddress"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"endpoint"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"extendedProperties"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"group"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"groupId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"groupName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"instanceMessengerId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"isReferencer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"locale"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"male"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"nickName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"resourceName"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userFirstName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userLastName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userMidddleName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userPortrait"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">":_roleMapping_of_worker"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"assignParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"assignType"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"birthday"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"companyId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"cursor"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingOption"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingParameters"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"emailAddress"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"endpoint"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"extendedProperties"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"group"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"groupId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"groupName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"instanceMessengerId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"isReferencer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"locale"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"male"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"nickName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"resourceName"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userFirstName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userLastName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userMidddleName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userPortrait"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">":_start_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729203856</span><span class="token punctuation">,</span>
+    <span class="token property">":_status:prop"</span><span class="token operator">:</span> <span class="token string">"Running"</span><span class="token punctuation">,</span>
+    <span class="token property">":test-one"</span><span class="token operator">:</span> <span class="token string">"aaa"</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0bk0z80:_due date:prop"</span><span class="token operator">:</span> <span class="token number">1727161722796</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0bk0z80:_loopBackCnt:prop"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0bk0z80:_previous:prop"</span><span class="token operator">:</span> <span class="token string">"Activity_0tpln90"</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0bk0z80:_start_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729722796</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0bk0z80:_status:prop"</span><span class="token operator">:</span> <span class="token string">"Running"</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0bk0z80:_task id:prop"</span><span class="token operator">:</span> <span class="token string">"24"</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0bk0z80:tokenCount:prop"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:_completed rolemapping:prop"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"assignParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"assignType"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"birthday"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"companyId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"cursor"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingOption"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchingParameters"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"emailAddress"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"endpoint"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"extendedProperties"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"group"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"groupId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"groupName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"instanceMessengerId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"isReferencer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"locale"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"male"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"nickName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"resourceName"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userFirstName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userLastName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userMidddleName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"userPortrait"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:_due date:prop"</span><span class="token operator">:</span> <span class="token number">1727161203865</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:_end_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729722795</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:_loopBackCnt:prop"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:_start_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729203864</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:_status:prop"</span><span class="token operator">:</span> <span class="token string">"Completed"</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:_task id:prop"</span><span class="token operator">:</span> <span class="token string">"23"</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90:tokenCount:prop"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Event_045vefp:_end_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729203862</span><span class="token punctuation">,</span>
+    <span class="token property">"Event_045vefp:_start_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729203862</span><span class="token punctuation">,</span>
+    <span class="token property">"Event_045vefp:_status:prop"</span><span class="token operator">:</span> <span class="token string">"Completed"</span><span class="token punctuation">,</span>
+    <span class="token property">"Event_045vefp:tokenCount:prop"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_0p98188:_end_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729722795</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_0p98188:_loopBackCnt:prop"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_0p98188:_start_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729722795</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_0p98188:_status:prop"</span><span class="token operator">:</span> <span class="token string">"Completed"</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_0p98188:tokenCount:prop"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_1nd3ft6:_end_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729722796</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_1nd3ft6:_loopBackCnt:prop"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_1nd3ft6:_start_time:prop"</span><span class="token operator">:</span> <span class="token number">1726729722796</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_1nd3ft6:_status:prop"</span><span class="token operator">:</span> <span class="token string">"Completed"</span><span class="token punctuation">,</span>
+    <span class="token property">"Gateway_1nd3ft6:tokenCount:prop"</span><span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="instanceinstanceidstatus"><a href="#instanceinstanceidstatus" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}/status</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 각 Task 별 진행 상태</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/status</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"Activity_0bk0z80"</span><span class="token operator">:</span> <span class="token string">"Ready"</span><span class="token punctuation">,</span>
+    <span class="token property">"Activity_0tpln90"</span><span class="token operator">:</span> <span class="token string">"Running"</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="instanceinstanceidrunning"><a href="#instanceinstanceidrunning" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}/running</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 실행 중인 Task 목록</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/running</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"absTrcTag"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"actType"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"defId"</span><span class="token operator">:</span> <span class="token string">"test-woori"</span><span class="token punctuation">,</span>
+        <span class="token property">"defName"</span><span class="token operator">:</span> <span class="token string">"test-woori"</span><span class="token punctuation">,</span>
+        <span class="token property">"defVerId"</span><span class="token operator">:</span> <span class="token string">"2.0"</span><span class="token punctuation">,</span>
+        <span class="token property">"delegated"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"description"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchOption"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dueDate"</span><span class="token operator">:</span> <span class="token number">1727103600000</span><span class="token punctuation">,</span>
+        <span class="token property">"endDate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"endpoint"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"execScope"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext2"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext3"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext4"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext5"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"instId"</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token property">"parameter"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"prevUserName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"priority"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">"processInstance"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"readDate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"refRoleName"</span><span class="token operator">:</span> <span class="token string">"null"</span><span class="token punctuation">,</span>
+        <span class="token property">"resName"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"roleName"</span><span class="token operator">:</span> <span class="token string">"worker"</span><span class="token punctuation">,</span>
+        <span class="token property">"rootInstId"</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token property">"saveDate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"startDate"</span><span class="token operator">:</span> <span class="token number">1726671600000</span><span class="token punctuation">,</span>
+        <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"NEW"</span><span class="token punctuation">,</span>
+        <span class="token property">"taskId"</span><span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"setTwo"</span><span class="token punctuation">,</span>
+        <span class="token property">"tool"</span><span class="token operator">:</span> <span class="token string">"defaultHandler"</span><span class="token punctuation">,</span>
+        <span class="token property">"trcTag"</span><span class="token operator">:</span> <span class="token string">"Activity_0bk0z80"</span><span class="token punctuation">,</span>
+        <span class="token property">"urget"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span></code></pre>
+<h3 id="instanceinstanceidcompleted"><a href="#instanceinstanceidcompleted" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}/completed</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 완료 된 Task 목록</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/completed</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+        <span class="token property">"absTrcTag"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"actType"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"defId"</span><span class="token operator">:</span> <span class="token string">"test-woori"</span><span class="token punctuation">,</span>
+        <span class="token property">"defName"</span><span class="token operator">:</span> <span class="token string">"test-woori"</span><span class="token punctuation">,</span>
+        <span class="token property">"defVerId"</span><span class="token operator">:</span> <span class="token string">"2.0"</span><span class="token punctuation">,</span>
+        <span class="token property">"delegated"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"description"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchOption"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"dispatchParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"dueDate"</span><span class="token operator">:</span> <span class="token number">1727103600000</span><span class="token punctuation">,</span>
+        <span class="token property">"endDate"</span><span class="token operator">:</span> <span class="token number">1726671600000</span><span class="token punctuation">,</span>
+        <span class="token property">"endpoint"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"execScope"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext2"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext3"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext4"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"ext5"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"instId"</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token property">"parameter"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"payload"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"testone"</span><span class="token operator">:</span> <span class="token string">"aaa"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"prevUserName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"priority"</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">"processInstance"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"readDate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"refRoleName"</span><span class="token operator">:</span> <span class="token string">"null"</span><span class="token punctuation">,</span>
+        <span class="token property">"resName"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"roleName"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+        <span class="token property">"rootInstId"</span><span class="token operator">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token property">"saveDate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"startDate"</span><span class="token operator">:</span> <span class="token number">1726671600000</span><span class="token punctuation">,</span>
+        <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"COMPLETED"</span><span class="token punctuation">,</span>
+        <span class="token property">"taskId"</span><span class="token operator">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"setOne"</span><span class="token punctuation">,</span>
+        <span class="token property">"tool"</span><span class="token operator">:</span> <span class="token string">"defaultHandler"</span><span class="token punctuation">,</span>
+        <span class="token property">"trcTag"</span><span class="token operator">:</span> <span class="token string">"Activity_0tpln90"</span><span class="token punctuation">,</span>
+        <span class="token property">"urget"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span></code></pre>
+<h3 id="instanceinstidvariablevarname"><a href="#instanceinstidvariablevarname" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instId}/variable/{varName}</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 인스턴스의 프로세스 변수</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/variable/test-one</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json">aaa</code></pre>
+<h3 id="instanceinstidtasktaskidvariablevarname"><a href="#instanceinstidtasktaskidvariablevarname" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instId}/task/{taskId}/variable/{varName}</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: task에서 사용 된 변수 정보.</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/task/25/variable/test-one</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json">aaa</code></pre>
+<h3 id="instanceinstidrole-mappingrolename"><a href="#instanceinstidrole-mappingrolename" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instId}/role-mapping/{roleName}</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: Instance RoleMapping 정보.</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/role-mapping/manager</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"assignParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"assignType"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"birthday"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"companyId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"cursor"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"dispatchParam1"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"dispatchingOption"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token property">"dispatchingParameters"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"emailAddress"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"endpoint"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+    <span class="token property">"extendedProperties"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"group"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">"groupId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"groupName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"instanceMessengerId"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"isReferencer"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"locale"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"male"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"nickName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"resourceName"</span><span class="token operator">:</span> <span class="token string">"manager"</span><span class="token punctuation">,</span>
+    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"userFirstName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"userLastName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"userMidddleName"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+    <span class="token property">"userPortrait"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="instanceinstanceidfire-message"><a href="#instanceinstanceidfire-message" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/{instanceId}/fire-message</code></h3>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>Description</strong>: instane에 메시지 발행.</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http POST :9094/instance/22/fire-message <span class="token assign-left variable">message</span><span class="token operator">=</span><span class="token string">"message"</span></code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"></code></pre>
+<h3 id="instanceshutdown"><a href="#instanceshutdown" aria-hidden="true"><span class="icon icon-link"></span></a><code>/instance/shutdown</code></h3>
+<ul>
+<li><strong>Method</strong>: POST</li>
+<li><strong>Description</strong>: Process-service 종료 API</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http GET :9094/instance/22/eventList</code></pre>
+<h3 id="dry-run"><a href="#dry-run" aria-hidden="true"><span class="icon icon-link"></span></a><code>/dry-run/**</code></h3>
+<ul>
+<li><strong>Method</strong>: GET</li>
+<li><strong>Description</strong>: 드라이 런으로 인스턴스 실행.</li>
+<li><strong>Produces</strong>: application/json;charset=UTF-8</li>
+<li><strong>호출</strong></li>
+</ul>
+<pre class="language-sh"><code class="language-sh">http :9094/dry-run/test-woori</code></pre>
+<ul>
+<li><strong>결과</strong></li>
+</ul>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"activity"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"activityIcon"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"allowAnonymous"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"breakpoint"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"checkPoint"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"checked"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token property">"co2Emission"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"cost"</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+        <span class="token property">"document"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"duration"</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+        <span class="token property">"dynamicChangeAllowed"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">"elementView"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+        <span class="token property">"eventSynchronization"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"attributes"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">"className"</span><span class="token operator">:</span> <span class="token string">"String"</span><span class="token punctuation">,</span>
+                    <span class="token property">"isCorrKey"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    <span class="token property">"isKey"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"testone"</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+...
+<span class="token comment">// 중략</span></code></pre>
+</div><div class="mt-8 pt-8 lg:mt-12 lg:pt-12 border-t border-ui-border"><div><div class="flex flex-col sm:flex-row justify-between items-center"><!----><!----></div></div></div></div></div></div></main></div><!----></div>
+    <script src="/assets/js/app.c49723a5.js" defer></script><script src="/assets/js/page--src--templates--markdown-page-vue.60bd6399.js" defer></script>
+  </body>
+</html>
