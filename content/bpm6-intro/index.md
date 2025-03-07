@@ -3,7 +3,7 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 소개하기
+# introduction
 
 ## uEngine6 BPM 개요
 uEngine6은 BPM 기반 아키텍처 분석에서 운영자동화까지 한번에 지원하는 SOA MM Level 7을 지원하는 플랫폼입니다
