@@ -3,12 +3,12 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 배포하기
+# Deployment
 
 ## Docker
-Docker 컨테이너 환경에서 uEngine6 BPM를 배포하는 설정 방법입니다. 기본적으로 kafka를 통해서 비동기식 통신방식으로 통신하는 방식으로 설정 합니다. 
+This is the configuration method for deploying uEngine6 BPM in a Docker container environment. By default, it is configured to communicate asynchronously through Kafka.
 
-### 서비스 빌드 및 설치
+### Service Build and Installation
 ```bash
 cd /process-service
 mvn install -DskipTests
@@ -17,7 +17,7 @@ cd /definition-service
 mvn install -DskipTests
 ```
 
-### 서비스 docker image 빌드 및 배포
+### Build and Deploy Service Docker Image
 ```bash
 docker build -t process-service:latest .
 docker tag process:latest {userId}/process-service:1.0.0
@@ -28,7 +28,7 @@ docker tag definition:latest {userId}/definition-service:1.0.0
 docker push {userId}/definition-service:1.0.0
 ```
 
-### docker compose 파일 작성
+### Write Docker Compose File
 ```yaml
 version: '3.8'
 services:
@@ -105,37 +105,35 @@ networks:
     driver: bridge
 ```
 
-### docker compose 실행 및 중지
+### Run and Stop Docker Compose
 ```bash
-docker-compose up #실행
-docker-compose down #중지
+docker-compose up #run
+docker-compose down #stop
 ```
 
 
 
 ## JEUS 8
-JEUS 8 WAS에 uEngine6 BPM를 배포하려면 다음과 같은 설정이 필요합니다.
+To deploy uEngine6 BPM on JEUS 8 WAS, the following settings are required.
 
-- JEUS 8 호환성: JEUS 8은 Java EE7과 호환되며, JDK 7 및 JDK 8을 지원합니다. 그러나 JDK 8 사용을 권장합니다.
+- JEUS 8 Compatibility: JEUS 8 is compatible with Java EE7 and supports JDK 7 and JDK 8. However, JDK 8 is recommended.
 
-- Spring Boot 버전: 현재 프론트엔드에서는 Spring Boot 2.3.1.RELEASE 버전을 사용하고 있습니다. 이 버전은 JDK 8 이상을 필요로 합니다.
+- Spring Boot Version: The frontend currently uses Spring Boot 2.3.1.RELEASE version. This version requires JDK 8 or higher.
+With these settings, you can effectively deploy uEngine6 BPM in a JEUS 8 environment. Using JDK 8 ensures optimal performance and compatibility.
+First, package it in war format for deployment to WAS.
 
-이 설정을 통해 JEUS 8 환경에서 uEngine6 BPM를 효과적으로 배포할 수 있습니다. JDK 8을 사용하는 것이 최적의 성능과 호환성을 보장합니다.
-
-우선 WAS에 배포 하기 위해서 war 형식으로 패키징을 합니다. 
-
-### 서비스 war로 패키징 설정
+### Service Packaging as WAR Configuration
 ```xml
 <!-- /process-service/pom.xml -->
 <!-- /definition-service/pom.xml -->
 
 <project>
-  <!-- 기존 소스 코드... -->
+  <!-- Original source code... -->
   <packaging>war</packaging>
 </project>
 ```
 
-### 서비스 JAVA8 빌드 설정 및 의존성 추가
+### Service JAVA8 Build Configuration and Dependency Addition
 ```xml
 <!-- /pom.xml -->
 <!-- /uengine-commons/pom.xml -->
@@ -145,21 +143,21 @@ JEUS 8 WAS에 uEngine6 BPM를 배포하려면 다음과 같은 설정이 필요�
 <!-- /process-service/pom.xml -->
 <!-- /definition-service/pom.xml -->
 <dependencies>
-    <!-- 기존 소스 코드... -->
+    <!-- Original source code... -->
     <dependency>
         <groupId>javax.validation</groupId>
         <artifactId>validation-api</artifactId>
-        <version>2.0.1.Final</version> <!-- 호환되는 버전을 사용 -->
-        <scope>provided</scope> <!-- 런타임 시 JEUS8의 버전을 사용 -->
+        <version>2.0.1.Final</version> <!-- Use compatible version -->
+        <scope>provided</scope> <!-- Use JEUS8 version at runtime -->
     </dependency>
     <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-validator</artifactId>
-        <version>6.0.13.Final</version> <!-- 호환되는 버전을 사용 -->
-        <scope>provided</scope> <!-- 런타임 시 JEUS8의 버전을 사용 -->
+        <version>6.0.13.Final</version> <!-- Use compatible version -->
+        <scope>provided</scope> <!-- Use JEUS8 version at runtime -->
     </dependency>
 
-    <!-- process-service/pom.xml, definition-service/pom.xml 추가 -->
+    <!-- Add to process-service/pom.xml, definition-service/pom.xml -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
@@ -179,7 +177,7 @@ JEUS 8 WAS에 uEngine6 BPM를 배포하려면 다음과 같은 설정이 필요�
 </dependencies>
 
 <properties>
-    <!-- 기존 소스 코드... -->
+    <!-- Original source code... -->
     <java.version>1.8</java.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -187,7 +185,7 @@ JEUS 8 WAS에 uEngine6 BPM를 배포하려면 다음과 같은 설정이 필요�
 
   <build>
     <plugins>
-        <!-- 기존 소스 코드... -->
+        <!-- Original source code... -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -201,7 +199,7 @@ JEUS 8 WAS에 uEngine6 BPM를 배포하려면 다음과 같은 설정이 필요�
   </build>
 ```
 
-### 서비스 web.xml 생성및 설정
+### Service web.xml Creation and Configuration
 ```xml
 <!-- /process-service/src/main/webapp/WEB-INF/web.xml -->
 <!-- /definition-service/src/main/webapp/WEB-INF/web.xml -->
@@ -211,20 +209,20 @@ JEUS 8 WAS에 uEngine6 BPM를 배포하려면 다음과 같은 설정이 필요�
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <!-- 서블릿 매핑 -->
+    <!-- Servlet mapping -->
     <servlet-mapping>
         <servlet-name>DefinitionServiceServlet</servlet-name>
         <url-pattern>/definition-service/*</url-pattern>
     </servlet-mapping>
 
-    <!-- 환영 페이지 -->
+    <!-- Welcome page -->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 </web-app>
 ```
 
-### 서비스 서블릿 설정
+### Service Servlet Configuration
 ```java
 // /process-service/src/main/java/com/uengine/process/ProcessServiceApplication.java
 // /definition-service/src/main/java/com/uengine/definition/DefinitionServiceApplication.java
@@ -235,7 +233,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages = "org.uengine.five") // 명시적 컴포넌트 스캔 추가
+@ComponentScan(basePackages = "org.uengine.five") // Add explicit component scan
 public class ServiceApplication extends SpringBootServletInitializer implements ApplicationContextAware {
 
     public static ApplicationContext applicationContext;

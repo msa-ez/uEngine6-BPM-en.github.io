@@ -3,51 +3,51 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-### 프로세스 정의 체계도 작성 방법
+### Process Definition System Diagram Creation Method
 
-#### 작성 방법
+#### Creation Method
 
-1. **잠금 해제**  
-   - 프로세스 정의 체계도를 편집하려면 상단의 잠금 해제 버튼을 클릭하여 수정 가능한 상태로 만듭니다.  
-   - **[이미지-2]**: 잠금 해제 버튼
+1. **Unlock**  
+   - To edit the process definition system diagram, click the unlock button at the top to make it editable. 
+   - **[Image-2]**: Unlock button
    ![](../../uengine-image/PAL_processDefinitionMap_lock.png)
 
-2. **MEGA 프로세스 추가**  
-   - 체계도에서 `MEGA 프로세스 추가` 버튼을 클릭하여 최상위 프로세스를 생성합니다.  
-   - 생성된 MEGA 프로세스 안에서 추가 세부 프로세스를 정의할 수 있습니다.  
-   - **[이미지-3]**: MEGA 프로세스 추가 버튼과 실행 화면  
+2. **Add MEGA Process**  
+   - Click the `Add MEGA Process` button in the system diagram to create the top-level process.
+   - Additional detailed processes can be defined within the created MEGA process.
+   - **[Image-3]**: MEGA process add button and execution screen
    
    ![](../../uengine-image/PAL_processDefinitionMap_mega_1.png)
    
    ![](../../uengine-image/PAL_processDefinitionMap_mega_2.png)
 
-3. **MAJOR 프로세스 추가**  
-   - MEGA 프로세스 내부에서 `MAJOR 프로세스 추가` 버튼을 클릭합니다.  
-   - MAJOR 프로세스는 중간 단계의 프로세스를 나타내며, 하위 프로세스 추가를 지원합니다.  
-   - **[이미지-4]**: MAJOR 프로세스 추가 버튼과 실행 화면  
+3. **Add MAJOR Process**  
+   - Click the `Add MAJOR Process` button inside the MEGA process.
+   - MAJOR processes represent intermediate-level processes and support adding sub-processes.
+   - **[Image-4]**: MAJOR process add button and execution screen
    
    ![](../../uengine-image/PAL_processDefinitionMap_major_1.png)
 
    ![](../../uengine-image/PAL_processDefinitionMap_major_2.png)
 
-4. **SUB 프로세스 추가**  
-   - MAJOR 프로세스 내부에서 `SUB 프로세스 추가` 버튼을 클릭합니다.  
-   - 팝업 창에서 새로운 프로세스 정의를 체크한 후 프로세스명을 입력합니다.  
-   - `저장` 버튼을 클릭하면 SUB 프로세스가 생성됩니다.  
-   - **[이미지-5]**: SUB 프로세스 추가 팝업 화면  
+4. **SAdd SUB Process**  
+   - Click the `Add SUB Process` button inside the MAJOR process.
+   - In the popup window, check the new process definition and enter the process name.
+   - Click the `Save` button to create the SUB process.
+   - **[Image-5]**: SUB process add popup screen
    
    ![](../../uengine-image/PAL_processDefinitionMap_sub_1.png)
 
    ![](../../uengine-image/PAL_processDefinitionMap_sub_2.png)
 
-5. **프로세스 정의 완료**  
-   - 프로세스 정의가 완료되면 체계도 상단의 `저장` 버튼을 클릭하여 프로세스 정의를 저장합니다.  
-   - **[이미지-6]**: 프로세스 정의 완료 화면  
+5. **Complete Process Definition**  
+   - When the process definition is complete, click the `Save` button at the top of the system diagram to save the process definition.  
+   - **[Image-6]**: Process definition completion screen 
    
    ![](../../uengine-image/PAL_processDefinitionMap_complete.png)
 
-6. **프로세스 확인**  
-   - 프로세스 정의가 완료되면 체계도 상단의 `프로세스 확인` 버튼을 클릭하여 프로세스 정의를 확인합니다.  
-   - **[이미지-7]**: 프로세스 확인 화면  
+6. **Verify Process**  
+   - After completing the process definition, click the `Verify Process` button at the top of the system diagram to verify the process definition.
+   - **[Image-7]**: Process verification screen
    
    ![](../../uengine-image/PAL_processDefinitionMap_sub_4.png)

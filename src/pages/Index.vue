@@ -4,7 +4,7 @@
       <!-- pc 환경 style -->
       <div class="pt-8 md:pt-16 is-pc">
         <div class="flex">
-          <div style = "width:47.5%;">
+          <div style = "width: 47.5%;">
             <div class="flex flex-col items-left mb-2 text-ui-primary">
               <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
                 uEngine6-BPM
@@ -37,23 +37,23 @@
         </div>
 
         <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
-        <h2 class = "sub-title">FEATURES</h2>
+        <h2 class="sub-title">FEATURES</h2>
         <!-- 텍스트 왼쪽 -->
-        <div v-for="(description, index) in mainDescriptions" :key="index" style="margin-top:50px;" class="flex">
+        <div v-for="(description, index) in mainDescriptions" :key="index" style="margin-top: 50px;" class="flex container">
           <template v-if="index % 2 === 0">
-            <div style="width:47.5%;">
-              <h3 style="font-size:30px; font-weight:500; margin:20px 0px 50px 0px;">{{ description.title }}</h3>
-              <div style="font-size:20px;">
+            <div style="width: 47.5%;">
+              <h3 style="font-size: 30px; font-weight: 500; margin: 20px 0px 50px 0px;">{{ description.title }}</h3>
+              <div style="font-size: 20px;">
                 {{ description.content }}
               </div>
             </div>
-            <g-image :src="description.image" style="width:47.5%; margin-left:5%;" />
+            <g-image :src="description.image" style="width: 47.5%; margin-left: 5%;" />
           </template>
           <template v-else>
-            <g-image :src="description.image" style="width:47.5%;" />
-            <div style="width:47.5%; margin-left:5%;">
-              <h3 style="font-size:30px; font-weight:500; margin:20px 0px 50px 0px;">{{ description.title }}</h3>
-              <div style="font-size:20px;">{{ description.content }}</div>
+            <g-image :src="description.image" style="width: 47.5%;" />
+            <div style="width: 47.5%; margin-left: 5%;">
+              <h3 style="font-size: 30px; font-weight: 500; margin: 20px 0px 50px 0px;">{{ description.title }}</h3>
+              <div style="font-size: 20px;">{{ description.content }}</div>
             </div>
           </template>
         </div>
@@ -61,8 +61,8 @@
       </div>
 
       <!-- 모바일 환경 style -->
-      <div class="is-mobile">
-        <div style="width:100%;">
+      <div class="is-mobile container">
+        <div style="width: 100%;">
           <div class="flex flex-col items-left mb-2 text-ui-primary">
             <h2 class="text-3xl text-6xl font-black tracking-tighter border-none">
               uEngine6-BPM
@@ -75,7 +75,7 @@
                 v-for="(link, index) in links"
                 :key="index"
                 :to="link.to"
-                style="font-size:14px; font-weight:500;"
+                style="font-size: 14px; font-weight: 500;"
                 class="glink-margin px-6 py-4 text-2xl leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
               >
                 {{ link.text }}
@@ -83,8 +83,8 @@
             </div>
           </div>
         </div>
-        <div style = "width:100%;">
-          <iframe style ="width:100%; height:300px;"
+        <div style = "width: 100%;">
+          <iframe style ="width: 100%; height: 300px;"
             src="https://www.youtube.com/embed/ZmytoLlvpMs"
             title="YouTube video player" 
             frameborder="0" 
@@ -94,7 +94,7 @@
           </iframe>
         </div>
         <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
-        <h2 class = "sub-title" style="font-size:30px;">FEATURES</h2>
+        <h2 class="sub-title">FEATURES</h2>
 
         <div v-for="(description, index) in mainDescriptions" :key="index" class="content-section">
           <div class="content-text">
@@ -105,18 +105,18 @@
         </div>
       </div>
 
-      <div class="col-lg-7 d-flex align-items-center">
-        <div class="wow fadeInUp"  data-wow-duration="1.2s" data-wow-offset="255">
-            <h2 class="sub-title is-mobile-sub-title mb-50 mb-sm-20">Other features</h2>
-            <div class="call-action-2-text mb-50 mb-sm-40">
+      <div class="container">
+        <div>
+            <h2 class="sub-title is-mobile-sub-title" style="margin: 50px 0;">Other features</h2>
+            <div style="margin-bottom: 50px;">
               <dl class="accordion">
                 <div v-for="(item, index) in accordionItems" :key="index"
-                   style="margin-bottom:30px;"
+                   style="margin-bottom: 30px;"
                 >
                   <dt>
-                    <a href="#" style="font-size:20px; font-weight: 700;">{{ item.title }}</a>
+                    <a href="#" style="font-size: 20px; font-weight: 700;">{{ item.title }}</a>
                   </dt>
-                  <dd class="text-gray" v-html="item.content"></dd>
+                  <dd class="text-gray-700" v-html="item.content"></dd>
                 </div>
               </dl>
             </div>
@@ -127,13 +127,13 @@
         </div>                                
       </div>
 
-      <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+      <div class="pt-8 mx-auto mt-8 border-t md:mt-20 md:pt-20 border-top border-ui-border max-w-screen-sm"></div>
 
-      <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom:30px;">Trusted by</h2>
-      <g-image style ="width:100%;" src="../../uengine-image/cases.png"></g-image>
+      <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom: 50px;">Trusted by</h2>
+      <g-image style ="width: 100%;" src="../../uengine-image/cases.png"></g-image>
 
       <!-- uEngine 제품 그룹 섹션 위치 -->
-      <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
+      <div class="pt-8 mx-auto mt-8 border-t md:mt-20 md:pt-20 border-top border-ui-border max-w-screen-sm"></div>
 
       <!-- <h2 class = "sub-title is-mobile-sub-title" style="margin-bottom:30px;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h2>
       <g-image style ="width:100%;" src="../../uengine-image/96.png"></g-image>
@@ -157,33 +157,26 @@
         
         Zero Code & Extensible Vocalbulary 섹션 -->
 
-        <section class="page-section bg-gray-light-1 bg-light-alpha-70 bg-scroll pb-0 mb-40 mb-md-20 mb-sm-10 z-index-1" style="background-image: url(../images/full-width-images/section-bg-9.jpg)">
-          <div class="container position-relative">                    
-              <div class="row">
-                  <div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1 text-center">
-                      <h2 class="section-caption mb-xs-10 wow fadeInUp">Our Values</h2>
-                      <h3 class="section-title-small mb-60 mb-sm-40" style="line-height: 1.5;">
-                          <span class="wow charsAnimIn" data-splitting="chars">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</span>
-                      </h3>
-                      <div class="overflow-hidden mb-md-n140 mb-sm-n80" style="margin-top: 50px; margin-left: 100px; margin-bottom: -100px;">
-                          <img src="../../uengine-image/96.png" class="wow scaleOutIn" data-wow-offset="50" alt="Image Description" />
+        <section class="pb-0 mb-40">
+          <div class="container">                    
+              <div>
+                  <div class="text-center">
+                      <h2 class="sub-title is-mobile-sub-title" style="line-height: 1.5; margin-bottom: 50px;">왜 유엔진에서는 BPM 제품을 오픈소스화 한 것인가요?</h2>
+                      <div style="display: flex; justify-content: center; margin-bottom: 50px;">
+                          <img src="../../uengine-image/96.png" alt="Image Description" />
                       </div>
                   </div>
               </div>
+              <div>
+                  <p style="line-height: 1.8;">
+                    유엔진 BPM 프로젝트는 기존 고가의 라이센스 비용으로만 접할 수 있던 BPMS 제품을 오픈소스 형태로 제공하고, 이를 적용하기 위한 교육과 컨설팅 서비스를 제공함으로써, 컨설팅 비용 중심의 예산구조를 통한 충실한 교육과 내재화 달성, 소스코드의 제공을 통한 고객 요건에 중심을 둔 충실한 커스터마이징, 다수의 서비스 채널을 허용합니다. 
+                    BPM도입에서의 고려사항 중 기술적인 내용과 관계있는 사항은, 얼마나 용이하게 커스터마이징 가능한가와 우리 조직 시스템 환경에 부담없이 쉽게 융합될 수 있는가 입니다. 
+                    이러한 커스터마이저빌리티와 리스크 낮은 융합을 위해 유엔진BPMS의 아키텍처는 "객체지향 컴포넌트 프레임워크"의 접근방식인 IoC (제어권의 반전)과 "설계의 재사용"의 컨셉을 적용하고 있습니다. 
+                    이는, 조직도 찾기 로직의 분리, 액티비티 유형의 컴포넌트 인터페이스화, 엔진상 발생 이벤트의 리스너 등의 컴포넌트 인터페이스를 제공하여 BPM Hot-spot 서비스(고정부위)와 BPM 커스터마이징 빈발요소(가변부위)를 정제한 경계를 형성하며 고정부위의 서비스로서, 리플렉션을 통한 액티비티 컴포넌트 UI의 자동생성, 인스턴스 데이터의 관리, MQ처리, OLAP분석처리등의 기능을 기반 제공함으로서 개발자로 하여금 BPM 기반 개발에 있어 BPM하부 기술에 대한 어떠한 고민도 하지 않더라도 커스터마이징을 용이하게 하는 접근방식입니다. 
+                    이러한 접근방식은 이미 Spring Framework 등, 다양한 프레임워크에서의 접근방식을 BPM기반 시스템 개발의 영역에 대입한 것으로, 일반적으로 패키지 기반으로만 제공되어 Server/Client 방식의 연계만을 허용하는 BPM제품에서의 리스크를 대폭 줄이고 가용성을 최대화하는 기술적 기반이 됩니다.                            
+                  </p>
+              </div>
           </div>
-        </section>
-
-        <section class="page-section">
-            <div class="container position-relative">
-                <div class="row col-lg-10 offset-lg-1">
-                    <p class="testimonials-6-author" style="line-height: 1.8;">
-                        유엔진 BPM 프로젝트는 기존 고가의 라이센스 비용으로만 접할 수 있던 BPMS 제품을 오픈소스 형태로 제공하고, 이를 적용하기 위한 교육과 컨설팅 서비스를 제공함으로써, 컨설팅 비용 중심의 예산구조를 통한 충실한 교육과 내재화 달성, 소스코드의 제공을 통한 고객 요건에 중심을 둔 충실한 커스터마이징, 다수의 서비스 채널을 허용합니다. 
-                        BPM도입에서의 고려사항 중 기술적인 내용과 관계있는 사항은, 얼마나 용이하게 커스터마이징 가능한가와 우리 조직 시스템 환경에 부담없이 쉽게 융합될 수 있는가 입니다. 
-                        이러한 커스터마이저빌리티와 리스크 낮은 융합을 위해 유엔진BPMS의 아키텍처는 "객체지향 컴포넌트 프레임워크"의 접근방식인 IoC (제어권의 반전)과 "설계의 재사용"의 컨셉을 적용하고 있습니다. 
-                        이는, 조직도 찾기 로직의 분리, 액티비티 유형의 컴포넌트 인터페이스화, 엔진상 발생 이벤트의 리스너 등의 컴포넌트 인터페이스를 제공하여 BPM Hot-spot 서비스(고정부위)와 BPM 커스터마이징 빈발요소(가변부위)를 정제한 경계를 형성하며 고정부위의 서비스로서, 리플렉션을 통한 액티비티 컴포넌트 UI의 자동생성, 인스턴스 데이터의 관리, MQ처리, OLAP분석처리등의 기능을 기반 제공함으로서 개발자로 하여금 BPM 기반 개발에 있어 BPM하부 기술에 대한 어떠한 고민도 하지 않더라도 커스터마이징을 용이하게 하는 접근방식입니다. 
-                        이러한 접근방식은 이미 Spring Framework 등, 다양한 프레임워크에서의 접근방식을 BPM기반 시스템 개발의 영역에 대입한 것으로, 일반적으로 패키지 기반으로만 제공되어 Server/Client 방식의 연계만을 허용하는 BPM제품에서의 리스크를 대폭 줄이고 가용성을 최대화하는 기술적 기반이 됩니다.                            </p>
-                </div>
-            </div>
         </section>
 
         <div class="pt-8 mx-auto mt-8 border-t md:mt-16 md:pt-16 border-top border-ui-border max-w-screen-sm"></div>
@@ -191,7 +184,7 @@
         <h2 class="sub-title is-mobile-sub-title">License</h2>
         <h3>uEngine Open Source License : LGPL</h3>
 
-        <table style = "width:100%;">
+        <table style="width: 100%;">
           <tr><!-- 첫번째 줄 시작 -->
               <td>주요 오픈소스SW<br>라이선스 비교</td>
               <td>무료<br>이용가능</td>
@@ -266,17 +259,17 @@
 
   <!-- pc footer -->
     <footer 
-      style = "width:100%;
-      height:300px;
-      background-color:#1E88E5;"
+      style="width: 100%;
+      height: 300px;
+      background-color: #1E88E5;"
       class="is-pc-footer"
     >
       <div class="flex logo-style">
         <div>
-        <g-image style="display:block;" src="../../uengine-image/logo-bpm.png"></g-image>
+        <g-image style="display: block;" src="../../uengine-image/logo-bpm.png"></g-image>
         </div>
       </div>
-      <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:50px; padding-top:20px;">
+      <div style = "width: 100%; height: 100px; text-align: center; font-size: 16px; color: white; font-weight: 300; line-height: 50px; padding-top: 20px;">
         <div>Copyright © 2017 uEngine &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; All Rights Reserved &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Designed By Sppark &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
         <div>Email : help@uengine.org</div>
       </div>
@@ -284,9 +277,9 @@
 
   <!-- 모바일 footer -->
     <footer 
-      style = "width:100%;
-      height:300px;
-      background-color:#1E88E5;"
+      style = "width: 100%;
+      height: 300px;
+      background-color: #1E88E5;"
       class="is-mobile-footer"
     >
       <div class="flex logo-style">
@@ -294,7 +287,7 @@
         <g-image style="display:block;" src="../../uengine-image/logo-bpm.png"></g-image>
         </div>
       </div>
-      <div style = "width:100%; height:100px; text-align:center; font-size:16px; color:white; font-weight:300; line-height:30px; padding-top:20px;">
+      <div style = "width: 100%; height: 100px; text-align: center; font-size: 16px; color: white; font-weight: 300; line-height: 30px; padding-top: 20px;">
         <div>Copyright © 2017 uEngine <br> All Rights Reserved <br> Designed By Sppark <br> Address 서울 서초구 신반포로45길 18 주일빌딩 501호</div>
         <div>Email : help@uengine.org</div>
       </div>
@@ -394,7 +387,7 @@ export default {
       ],
       links: [
         {
-          to: '/getting-started/',
+          to: '/bpm6-intro/',
           text: 'Getting Started'
         },
         {
@@ -493,18 +486,18 @@ export default {
   margin-top: 30px;
 }
 
-  @media only screen and (max-width:1279px) {
-    .is-pc{display:none;}
-    .is-mobile{display:block;}
+@media only screen and (max-width:1279px) {
+  .is-pc{display:none;}
+  .is-mobile{display:block;}
 
-    .is-mobile-sub-title{font-size:30px;}
+  .is-mobile-sub-title{font-size:30px;}
 
-    .logo-style{
-      width:40%; margin-left:30%;  padding-top:30px;
-    }
-    .is-mobile-footer{display:block;}
-    .is-pc-footer{display:none;}
+  .logo-style{
+    width:40%; margin-left:30%;  padding-top:30px;
   }
+  .is-mobile-footer{display:block;}
+  .is-pc-footer{display:none;}
+}
 
 
 </style>

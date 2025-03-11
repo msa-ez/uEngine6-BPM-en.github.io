@@ -2,12 +2,12 @@
 description: ''
 sidebar: 'getting-started'
 ---
-# 라이센스 및 문의하기
+# License and Contact Information
 
-## 라이센스
+## License
 **uEngine Open Source License : LGPL**
 
-| 주요 오픈소스SW 라이선스 비교 | 무료 이용가능 | 배포 허용가능 | 소스코드 취득가능 | 소스코드 수정가능 | 2차적 저작물 재공개 의무 | 독점SW와 결합가능 |
+| Main Open Source SW License Comparison | Free Use | Distribution Allowed | Source Code Acquisition | Source Code Modification | Obligation to Redistribute Derivative Works | Combinable with Proprietary SW |
 |-----------------------------|--------------|--------------|-----------------|-----------------|------------------------|------------------|
 | GPL                         | O            | O            | O               | O               | O                      | X                |
 | LGPL                        | O            | O            | O               | O               | O                      | O                |
@@ -15,17 +15,17 @@ sidebar: 'getting-started'
 | BSD Licence                 | O            | O            | O               | O               | X                      | O                |
 | Apache Licence              | O            | O            | O               | O               | X                      | O                |
 
-1) 2차 저작물이 재 공개 의무가 있으나 저작물이 전체가 아닌 ("독점SW와 결합가능" 항목에 의하여) 유엔진 내의 필요에 의하여서 수정한 부분만 sf.net 등에 공개하면 됩니다. </br>
-2) 주로 유엔진 내의 설정파일 수준에서 수정이 이루어지기 때문에 소스코드 변경이 발생치 않으나, 관리자 화면의 스플래시 화면 수정의 요건이 발생할 수 있습니다. </br>
-3) 2차 저작물의 어떠한 내용도 재 공개를 원치 않은 경우 "듀얼라이센싱" 정책에 의거하여 상용화(소스비공개 권한 획득) 라이센싱을 구매할 수 있습니다.</br>
-4) 무비용으로 유엔진을 사용하고자 하는 경우: - 유엔진 내 수정한 소스코드를 sf.net에 공개 - 유엔진 내의 소스를 수정하지 않고 사용자 화면 등에 유엔진을 사용했다는 표시를 하는 경우</br>
-5) 소스코드를 보호하고자 하는 경우: - 듀얼라이센싱 (상용화 라이센싱) 구매 출처 한국 저작권 위원회: http://www.olis.or.kr/osslice/guideViewComp.do
+1) While there is an obligation to redistribute derivative works, it is not the entire work that needs to be disclosed (as indicated by the "Combinable with Proprietary SW" item), but only the portions modified within uEngine that need to be disclosed on platforms like sf.net. </br>
+2) Modifications are mainly made at the configuration file level within uEngine, so source code changes do not occur, but requirements for modifying the splash screen in the admin interface may arise. </br>
+3) If you do not wish to disclose any contents of the derivative work, you can purchase commercial licensing (right to not disclose source) according to the "dual licensing" policy.</br>
+4) If you want to use uEngine at no cost: - Disclose the modified source code within uEngine on sf.net - Use uEngine without modifying its source code, while indicating the use of uEngine in the user interface, etc. </br>
+5) If you want to protect the source code: - Purchase dual licensing (commercial licensing) Source: Korea Copyright Commission: http://www.olis.or.kr/osslice/guideViewComp.do
 
-## 문의하기
-- **자세한 내용 문의:** [help@uengine.org](mailto:help@uengine.org)
-- **전화:** 02.567.8301
-- **주소**
-  + **본사:** 서울특별시 서초구 신반포로45길 18 5층 502호
-  + **지사:** 경상남도 창원시 성산구 상남로37
-- **[Facebook 그룹](https://www.facebook.com/groups/uenginebpm/)**
-- **[YouTube 채널](https://www.youtube.com/channel/UCWXNEfACspVtCa-hyYBC76g)**
+## Contact Us
+- **For detailed inquiries:** [help@uengine.org](mailto:help@uengine.org)
+- **Tel:** 02.567.8301
+- **Address**
+  + **Headquarters:** Floor 5, Room 502, 18, Sinbanpo-ro 45-gil, Seocho-gu, Seoul, Republic of Korea
+  + **Branch:** 37, Sangnam-ro, Seongsan-gu, Changwon-si, Gyeongsangnam-do, Republic of Korea
+- **[Facebook Group](https://www.facebook.com/groups/uenginebpm/)**
+- **[YouTube Channel](https://www.youtube.com/channel/UCWXNEfACspVtCa-hyYBC76g)**

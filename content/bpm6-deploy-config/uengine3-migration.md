@@ -5,7 +5,7 @@ prev: ''
 next: ''
 ---
 
-# uEngine3.x 마이그레이션
+# uEngine3.x Migration
 
 <h3>Migrating uEngine 3 or 4 Process Definitions to uEngine6</h3>
 
@@ -39,7 +39,7 @@ public class UEngine3Converter {
         UEngineUtil.copyStream(inputFileStream, bao);
 
         String inputString = bao.toString();
-        //LGD 추가
+        //Add LGD
         inputString = inputString.replace("org.uengine.kernel.OCAPProcessDefinition", "org.uengine.kernel.ProcessDefinition");
         inputString = inputString.replace("org.uengine.kernel.EndActivity", "org.uengine.kernel.DefaultActivity");
         inputString = inputString.replace("com.lgdisplay.activity.OCAPBackActivity", "org.uengine.kernel.DefaultActivity");
@@ -70,7 +70,7 @@ java org.uengine.migrator.UEngine3Converter uengine3.process
 - Then, you can get uengine3.process.5.process for the converted version of input file.
 
 
-<h3>기존 uEngine 3.x 대의 프로세스 정의 모델 (블록 기반) 을 이해하고 싶다면 다음을 참고</h3>
+<h3>To understand the process definition model (block-based) of the existing uEngine 3.x series, refer to the following</h3>
 
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
@@ -88,7 +88,7 @@ java org.uengine.migrator.UEngine3Converter uengine3.process
 </div>
 <br><br>
 
-<h3>신규 uEngine6 의 프로세스 정의 모델 (그래프 기반) 을 이해하고 싶다면 다음을 참고</h3>
+<h3>To understand the process definition model (graph-based) of the new uEngine6, refer to the following</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.facebook.com/plugins/video.php?height=420&href=https%3A%2F%2Fwww.facebook.com%2F1401720840%2Fvideos%2F10204571371469880%2F&show_text=false&width=560&t=0" 

@@ -3,92 +3,78 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 조건 분기 처리
+# Conditional Branching
 
-## 게이트웨이를 활용한 프로세스 내 분기 처리
+## Using Gateways for Branching in Processes
 
-- 게이트웨이 분기 처리 적용 예시
+- Example of applying gateway branching
 
 >![](../../uengine-image/condition.jpeg)
 
-### 프로세스 정의 시 조건 적용 및 분기 처리
+### Applying Conditions and Branching When Defining Processes
 
-Gateway 노테이션을 활용해 프로세스 변수를 정의하고 조건을 설정함으로써 분기 처리를 진행한다.
+Using Gateway notation, you can define process variables and set conditions to perform branching.
 
-Gateway 설정에서 단순한 프로세스 변수를 비교하고 And/Or 조합의 복잡한 규칙을 정의할 수 있다.
+In Gateway settings, you can compare simple process variables and define complex rules with And/Or combinations.
 
-각 프로세스 변수에 분기 처리 변수를 알맞게 매핑해줌으로써 상황 별로 프로세스의 실행 단계를 지정한다.
+By properly mapping branching variables to each process variable, you specify the execution stages of the process for different situations.
 
-프로세스에서 메인으로 다루는 이슈에 대한 유형, 타입 별로 메시지를 요청해 각 풀에서 지정된 액션이 실행될 수 있도록 처리한다.
+Process the main issues in the process by requesting messages by type, allowing designated actions to be executed in each pool.
 
-## 조건분기 흐름제어 예시
+## Conditional Branching Flow Control Example
 
-본 장에서는 Trouble-Ticket 기본 예제를 확장하여 사용자의 장애 유형에 따라 다른 업무의 흐름을 갖도록 하는 “조건 분기” 흐름 유형을 배워보도록 하겠다.
-
-목표하는 프로세스는 [그림 7-1] 과 같다.
+In this chapter, we will learn about the "conditional branching" flow type by extending the basic Trouble-Ticket example to have different workflows according to the user's fault type.
+The target process is as shown in [Figure 7-1].
 
 >![](../../uengine-image/76-1.png)
 
->**그림 1) 최종 프로세스 화면**
+>**Figure 1) Final Process Screen**
 
-[그림 7-1] 에서 보듯이 목표 프로세스는 사용자가 입력한 장애 유형이 “SW” 이거나 “HW” 영역에 속한 경우는 기존의 업무 흐름을 따르게 되고 “기능개선”에 해당하는 경우는 프로세스를 건너뛰도록 하는 것이다.
+As shown in [Figure 7-1], the target process is to follow the existing workflow if the fault type entered by the user belongs to the "SW" or "HW" area, and to skip the process if it corresponds to "Feature Improvement".
 
-- 조건분기
-조건 분기 블록을 만들기 위해서는 “흐름제어” 액티비티 그룹내의 “조건분기” 액티비티를 사용하게 된다.
+- Conditional Branching
+To create a conditional branching block, you use the "Conditional Branching" activity within the "Flow Control" activity group.
 
 
 >![](../../uengine-image/77-1.png)
 
->**그림 2) 조건분기 프로세스**
+>**Figure 2) Conditional Branching Process**
 
-조건분기 액티비티를 생성하기 위해 Gateway아이콘을 클릭 후
+To create a conditional branching activity, click on the Gateway icon and then drag&drop it, and a conditional branching block will appear on the flow chart as shown above.
 
-drag&drop하면 위와 같이 플로우 차트 상에 조건분기 블록이 나타나게 된다.
+Drag this activity to the location where you want to execute the conditional branching
 
-이 액티비티를 조건분기를 실행하고자 하는 위치에 끌어다 놓는다.
+To execute conditional branching, you need to define the conditions for branching and the processes to be executed for each condition.
 
-조건 분기를 실행하기 위해서는 분기하기 위한 조건과
-
-각 조건별 실행 프로세스를 정해주어야 한다.
-
-먼저 실행하고자 하는 액티비티를 [그림7-3] 과 같이
-
-드래그 앤 드롭으로 순서대로 조건분기 블록 안에 포함시키도록 한다.
+First, include the activities you want to execute in the conditional branching block in order by drag and drop, as shown in [Figure 7-3].
 
 
 >![](../../uengine-image/78-1.png)
 
->**그림 3) 실행영역지정**
+>**Figure 3) Specifying the Execution Area**
 
 <br>
 
 >![](../../uengine-image/79-1.png)
 
->**그림 4) 두 번째 실행영역 지정**
+>**Figure 4) Specifying the Second Execution Area**
 
 
-형태가 완성되었으면 각 실행영역의 타이틀을 클릭하여 다음과 같이 지정한다.
+Once the form is complete, click on the title of each execution area and specify as follows.
 
-- 첫 번째 실행영역: S/W or H/W
-- 두 번째 실행영역: Request for improvement
+- First execution area: S/W or H/W
+- Second execution area: Request for improvement
 
 
 >![](../../uengine-image/80-1.png)
 
->**그림 5) 분기 프로세스 타이틀 지정**
+>**Figure 5) Specifying Branching Process Titles**
 
-이것으로 조건 분기 프로세스를 만들기 위한 기본적인 실행영역이 완성되었다.
-SW or HW일 때의 조건을 설정해 보도록 하겠다.
+This completes the basic execution areas for creating a conditional branching process. Let's set the conditions for when it's SW or HW.
 
-[그림 6] 과 같이 속성 창을 띄운 상태에서
+As shown in [Figure 6], with the properties window open, check Complex Rule, set the variable to class of problem, set the Comparator to =, and enter software and hardware as the Value values.
 
-Complex Rule을 체크해준 뒤 변수를 class of problem으로 설정하고,
-
-Comparator는 =, Value 값은 software와 hardware로 입력한다.
-
-S/Wor H/W두 가지에 해당하는 경우 우측의 프로세스를 실행하므로
-
-결과적으로 두 조건문은 OR 조건으로 연결해 준 것과 같다.
+Since the right process is executed in the case of both S/W or H/W, the two conditions are effectively connected with an OR condition.
 
 
 
@@ -96,13 +82,11 @@ S/Wor H/W두 가지에 해당하는 경우 우측의 프로세스를 실행하�
 
 <!-- >![](../../uengine-image/82.png) -->
 
->**그림 6) 분기 조건 설정(Otherwise)**
+>**Figure 6) Setting Branching Condition (Otherwise)**
 
-마지막으로 기능개선요구의 실행조건에 속성 중 ‘Otherwise Condition’
+Finally, check the 'Otherwise Condition' in the properties of the feature improvement request execution condition, which will become the condition that branches when it doesn't match any other conditions.
 
-부분을 체크 설정하면 어느 조건에도 해당하지 않을 시 분기되는 조건이 된다.
-
-이제까지 작업한 내용을 저장하여 테스트 해보자.
+Let's save what we've done so far and test it.
 
 
 
@@ -110,13 +94,11 @@ S/Wor H/W두 가지에 해당하는 경우 우측의 프로세스를 실행하�
 
 >![](../../uengine-image/85-1.png)
 
->**그림 7) 조건분기 실행 내역 (system관련 장애일 때)**
+>**Figure 7) Conditional Branching Execution History (When System-Related Fault)**
 
-위의 실행결과를 보면 두 개의 실행 경로 중
+Looking at the execution results above, you can see that the process has moved to the software fault area among the two execution paths.
 
-software장애 영역으로 프로세스가 이동하였음을 확인할 수 있다.
-
-이번에는 기타 장애 유형으로 인해 개선이 요구되는 사례를 만들어 보자.
+Now, let's create a case where improvement is required due to another type of fault.
 
 <br>
 
@@ -124,12 +106,8 @@ software장애 영역으로 프로세스가 이동하였음을 확인할 수 있
 
 >![](../../uengine-image/86-1.png)
 
->**그림 8) 조건분기 실행 내역 (개선 요구일 때)**
+>**Figure 8) Conditional Branching Execution History (When Improvement Request)**
 
-장애유형이 Request for improvement 일 때 프로세스의 흐름이
+When the fault type is Request for improvement, you can see that the flow of the process executes the empty task below and then terminates.
 
-아래쪽 빈 작업을 실행한 후 종료된 모습을 볼 수 있다.
-
-조건 분기문은 비즈니스 프로세스에서 의사결정을 구현하는
-
-핵심 기능이므로 응용하여 쓸 수 있을 때까지 학습해야 한다.
+Since conditional branching is a core function for implementing decision-making in business processes, it should be studied until it can be applied.

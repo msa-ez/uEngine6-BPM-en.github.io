@@ -3,57 +3,68 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 실행하기
+# Running
 
-## 프로젝트 준비
-- **프로젝트 클론**: GitHub에서 uEngine 프로젝트를 클론합니다.
+## Project Preparation
+- **Project Clone**:Clone the uEngine project from GitHub.
 ```sh
 git clone https://github.com/uengine-oss/uEngine6.git
 ```
 
-## Local 실행하기
-로컬 uEngine 실행하려면 기본적으로 비동기 통신을 위한 Kafka 서버가 필요합니다. 따라서 먼저 카프카 서버를 실행해야 합니다. 
-- kafka 서버 설치및 실행
-  - https://kafka.apache.org/ 접속하여 설치및 실행.
+## Local Execution
+To run uEngine locally, a Kafka server is required for asynchronous communication. Therefore, you must first start the Kafka server.
+- Kafka server installation and execution
+  - Visit https://kafka.apache.org/ to install and run.
 
-- uEngine 실행
+- uEngine execution
 ```sh
-# Process Service 실행(포트 9094)-프로세스 실행 서비스
+# Process Service execution(port 9094)-process execution service
 cd /process-service
 mvn spring-boot:run
 
-# Definition Service 실행(포트 9093)-프로세스 정의 서비스
+# Definition Service execution(port 9093)-process definition service
 cd /definition-service
 mvn spring-boot:run
 
-# Gateway Service 실행(포트 8088)-API 게이트웨이
+# Gateway Service execution(port 8088)-API gateway
 cd /gateway
 mvn spring-boot:run
 ```
 
 
-## Docker 실행하기
+## Docker Execution
 
-Docker에 uEngine을 올려서 실행하려면 다음 단계를 따르세요:
+To run uEngine using Docker, follow these steps:
 
-1. **디렉토리 이동**: 클론한 프로젝트의 루트 디렉토리로 이동합니다.
+1. **Directory Navigation**: Navigate to the root directory of the cloned project.
 ```sh
 cd uengine
 ```
-2. **Docker Compose 실행**: Docker Compose를 사용하여 uEngine을 실행합니다. 이때, `infra` 폴더에 있는 Docker Compose 파일을 사용합니다.
+2. **Run Docker Compose**: Use Docker Compose to run uEngine. Use the Docker Compose file located in the `infra` folder.
 ```sh
 # Docker Compose
 cd infra
 docker compose up
 ```
-    이 명령어는 `infra` 폴더에 정의된 모든 서비스를 시작합니다.
+    This command starts all services defined in the `infra` folder.
 
-3. **실행 확인**:
-실행이 완료되면 다음 이미지와 같이 uEngine과 관련된 docker image가 실행됩니다.
+3. **Execution Confirmation**:
+When execution is complete, the uEngine-related docker images will be running as shown in the following image.
 
 ![](../../uengine-image/installation-1.png)
 
-4. **uEngine 종료**: uEngine을 종료하려면 다음 명령어를 사용합니다.
+4. **Terminate uEngine**: To terminate uEngine, use the following command.
 ```sh
 docker compose down
 ```
+
+## Check Execution Screen
+
+When uEngine is running properly, open a web browser and access the following URL to check the execution screen.
+
+
+- Process execution screen
+http://localhost:8088/
+
+
+![](../../uengine-image/installation-2.png)

@@ -3,17 +3,17 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 외부 서비스 연동
-uEngine6 BPM에서 외부 서비스 연동하여 프로세스를 실행하는 방법에 대해 설명합니다. 외부 서비스와 통신하는 방식에는 크게 3가지가 존재 하며, 각 방식에 대해서 설명합니다.
+# External Service Integration
+uEngine6 BPM explains how to execute processes by integrating with external services. There are three main methods for communicating with external services, and each method is explained.
     
-- SOA (MSA) 아키텍처 예제 - Event
-- SOA (MSA) 아키텍처 예제 - Message
-- REST API 연동 [<span style="color:red;font-size: 0.7em;">NOT RECOMMENDED</span>]
+- SOA (MSA) Architecture Example - Event
+- SOA (MSA) Architecture Example - Message
+- REST API Integration [<span style="color:red;font-size: 0.7em;">NOT RECOMMENDED</span>]
 
-## SOA (MSA) 아키텍처 예제 - Event
-- 외부 서비스와 이벤트로 전송및 수신을 하여 진행을 하는 방법입니다. 일반적으로 비동기 방식으로 진행되며 이벤트를 전송 후 진행되며, 외부 서비스의 업무지 진행되면 이벤트를 수신 받아서 진행됩니다. 비동기 방식은 동기 방식과는 다르게 결합도를 높이고, 장애 발생시 영향도가 낮은게 장점입니다.
+## SOA (MSA) Architecture Example - Event
+- This is a method of proceeding by sending and receiving events with external services. It generally works asynchronously, proceeding after sending an event, and then continuing after receiving an event when the external service's task is completed. Unlike synchronous methods, the asynchronous approach increases cohesion and has the advantage of lower impact when failures occur.
 
-### 예제 영상
+### Example Video
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/E-tjj20-xxI?si=nhcIxujlVzTPXOeh" 
@@ -22,72 +22,73 @@ uEngine6 BPM에서 외부 서비스 연동하여 프로세스를 실행하는 �
 </div>
 <br>
 
-### 1. 동기 방식의 App 연동 시 문제점
+### 1. Problems with Synchronous App Integration
 ![IMAGE](../../uengine-image/115.png) 
-[이미지 1] 동기식 방식
+[Image 1] Synchronous Method
 
-  동기 방식은 응답을 기다리는 방식입니다. BPM과 App 사이의 일반적인 동기 방식 연동은 BPM의 응답을 기다리기 때문에 BPM에 장애가 발생하면 App에도 영향을 줄 수 있습니다. 이로 인해 시스템 전체에 장애가 전파되고 응답 지연이 발생할 수 있습니다.
+  The synchronous method waits for a response. Typical synchronous integration between BPM and App waits for BPM's response, so if BPM fails, it can affect the App as well. This can propagate failures throughout the system and cause response delays.
 
-  또한, App에서 BPM으로 요청 하는 정보가 변경 시 BPM에서도 변경되어야 하는 세부 정보가 많아져 의존성(dependency)을 이해해야 하는 등의 문제점이 있습니다. 이러한 이유로 App과 BPM 간의 동기 방식 처리 시 장애가 전파되고, 결합도가 높아 실패 시 즉각적인 처리가 불가능하다는 단점이 있습니다.
+  Also, when information requested from App to BPM changes, there are issues such as needing to understand dependencies because many details must also be changed in BPM. For these reasons, when processing synchronously between App and BPM, there are disadvantages such as failure propagation and high coupling, making immediate processing impossible when failures occur.
 
-- 상호 시스템간에 응답을 대기하여 **결합도 높아**집니다.
-- BPM 시스템에 문제가 생길시 App에도 장애가 생기는 **장애 전파**가 됩니다.
-- App의 요청및 응답 요구사항 변경시 BPM의 변경을 이야기하는 **의존성**이 생깁니다.
+- Inter-system response waiting **increases coupling.**
+- Problems in the BPM system cause **failure propagation** to the App.
+- When App request and response requirements change, **dependencies** arise that require BPM changes.
 
 
-  동기 방식은 BPM의 장애가 App에 영향을 미치며, 시스템 전체에 장애가 전파되고 응답 지연이 발생합니다. 또한, 의존성이 높아져 변경 시 문제가 발생하여 동기 방식으로 연동은 적합하지 않습니다.
+
+  The synchronous method allows BPM failures to affect the App, propagating failures throughout the system and causing response delays. Also, high dependency causes problems during changes, making synchronous integration unsuitable.
   
 
-### 2. 비동기 방식의 App 연동
+### 2. Asynchronous App Integration
 
-#### 2.1 연동 원칙
-  App과 BPM을 **비동기 방식**으로 처리합니다. 이는 BPM이 중지된 상태에서도 App에도 장애가 전파가 되지 않도록 되며, 이로 인해 App과 BPM의 시스템간의 블로킹 문제 등을 해소하는데 탁월한 방법이 됩니다.
+#### 2.1 Integration Principles
+  App and BPM are processed in an **asynchronous manner.** This prevents failures from propagating to the App even when BPM is stopped, making it an excellent method for resolving blocking issues between App and BPM systems.
 
-* 단방향 의존성 
-    - **비의존성**
-        - 메시지 브로커를 통해 이벤트 메시지를 전송하므로, BPM 호출을 기다리지 않습니다.
-    - **장애 차단**
-        - BPM시스템의 오류및 중지가 되었더라도, App에서의 영향이 없습니다. 장애 발생 시 다른 시스템에 영향을 주지 않습니다.
-    - **보장성**
-        - 중지된 BPM이 재실행 되더라도, 이전의 데이터가 반드시 처리가 되도록 보장합니다.
+* Unidirectional Dependency
+    - **Non-dependency**
+        - Event messages are sent through a message broker, so it doesn't wait for BPM calls.
+    - **Failure Blocking**
+        - Even if the BPM system has errors or stops, there is no impact on the App. When failures occur, they don't affect other systems.
+    - **Guarantee**
+        - Even when a stopped BPM is restarted, it guarantees that previous data will be processed.
 
-* 역할분리
+* Role Separation
     - App
-        - 업무 화면 
-        - 도메인로직 
-        - 데이터 관리
+        - Business screens
+        - Domain logic
+        - Data management
     - BPM
-        - 어플리케이션과 BPM 연동 시 시각적 이벤트 처리와 업무 공유 가능
-        - BPM에서 프로세스 흐름 정의 및 업무 배분 용이
-        - 업무 규칙(컨디션)에 따른 프로세스 분기/반복 
-        - 담당자를 조직도에서 찾아서 담당자에게 업무 화면(App)을 라우팅 (워크아이템)
+        - Visual event processing and business sharing when integrating applications and BPM
+        - Easy definition of process flows and work distribution in BPM
+        - Process branching/repetition according to business rules (conditions)
+        - Finding responsible persons from the organization chart and routing business screens (App) to them (work items)
 
-#### 2.2 예제 시나리오
-  비동기 방식의 APP과 BPM을 연동 하는 "장애 신고 및 처리" 예제 입니다. 
+#### 2.2 Example Scenario
+  This is an example of "Incident Reporting and Handling" that integrates APP and BPM asynchronously.
   
 ![IMAGE](../../uengine-image/104.png) 
-[이미지 2] "장애 신고 및 처리" 예제
+[Image 2] "Incident Reporting and Handling" Example
 
-  사용자가 어떠한 장애문제가 생겨 문제를 해결 하기 위해 장애 신고를 진행 합니다.
+  When users experience problems, they report incidents to resolve them.
 
-  신고된 내용을 바탕으로 담당자가 지정이 되고, 지정된 담장자는 사용자가 신고한 내용을 바탕으로 문제를 해결하는 장애 처리 되는 예제 입니다.
+  Based on the reported content, a person in charge is assigned, and this assigned person resolves the problem based on the content reported by the user.
 
 ![IMAGE](../../uengine-image/98.png)
-[이미지 3] "장애 신고 및 처리" 흐름도
+[Image 3] "Incident Reporting and Handling" Flow Chart
 
-"장애 신고 및 처리"의 예제는 2가지의 이벤트 타입을 정의 하여 진행 하였습니다.
-- 장애 신고 (TroubleIssued)
-- 장애 처리 (TroubleCompleted)
+The "Incident Reporting and Handling" example was implemented by defining two event types
+- Incident Report (TroubleIssued)
+- Incident Resolution (TroubleCompleted)
 
-"장애 신고"는 사용자가 장애의 종류와 장애의 문제점을 작성 하여 전달하는 이벤트 타입 입니다. 
+"Incident Report" is an event type where users write and transmit the type of incident and the problem.
   
-"장애 처리"는 사용자가 입력한 문제점을 바탕으로 담당자가 장애처리를 진행 한 후 완료되는 이벤트 타입 입니다. 
+"Incident Resolution" is an event type that is completed after the person in charge handles the incident based on the problem entered by the user.
 
-#### 2.3 애플리케이션(Publisher)
-  App에서는 "장애 신고" 및 "장애 처리"를 사용자가 입력을 하기 위한 화면 및 이벤트 전송을 정의 합니다. 
-  그리고 사용자가 입력한 정보를 가지고 "장애 신고(TroubleIssued)", "장애 처리(TroubleCompleted)"이벤트 타입으로 메시지브로커에 전달하기 위한 메시지 발행 시키는 역할을 합니다.
+#### 2.3 Application(Publisher)
+  The App defines screens for users to input "Incident Reports" and "Incident Resolutions" and event transmission.
+   It also plays the role of publishing messages to the message broker with the information entered by users as "Incident Report (TroubleIssued)" and "Incident Resolution (TroubleCompleted)" event types.
 
-  아래 코드는 App에서 이벤트를 발생 시키기 위한 코드 입니다.
+  The code below is for generating events in the App.
 
 ```java
 public class TroubleIssued extends AbstractEvent {
@@ -105,10 +106,10 @@ public class TroubleIssued extends AbstractEvent {
     }   
 }
 ```
-1. 장애 티켓 발행(TroubleIssued) 이벤트 작성시 AbstractEvent클래스를 상속하고, TroubleIssued 속성값을 설정 합니다.
+1. When writing a Trouble Ticket issuance (TroubleIssued) event, inherit the AbstractEvent class and set the TroubleIssued property values.
 
 ```java
-// 예시 2-1) Kafka를 통한 메시지 송신
+// Example 2-1) Message transmission through Kafka
 public class AbstractEvent {
 
     public void publish() {
@@ -139,7 +140,7 @@ public class AbstractEvent {
     }
 }
 ```
-2. AbstractEvent 클래스는 메시지브로커 채널 연결하여 메시지를 전달 할 수 있도록 선언한 클래스입니다.
+2. The AbstractEvent class is a declared class that connects to the message broker channel to deliver messages.
 
 ```java
 // TroubleTicket.java
@@ -174,131 +175,130 @@ public class TroubleTicket {
     }
 }
 ```
-3. TroubleTicket 클래스로 이벤트를 송신(Publisher) 하기 위해서 실행하는 클래스 입니다. publishAfterCommit() 함수를 통해서 메시지 브로커 쪽으로 송신 하게 됩니다.
-- 송신 메시지 예시
+3. This is a class that executes to transmit (Publisher) events through the TroubleTicket class. It transmits to the message broker through the publishAfterCommit() function.
+- Send message example
 ```sh
 {"eventType":"TroubleIssued","timestamp":1718873491127,"id":1,"troubleType":"sw","description":"sw is error."}
 ```
 
 #### 2.4 Message Broker
-Message Broker(메시지 브로커)는 시스템간 비동기 방식으로 연동하기 위해서 사용합니다. 대표적으로 Kafka을 사용하는데, 메시지 브로커는 시스템간의 의존성을 제거 하여 블로킹 문제를 해소하는데 탁월한 방법이 됩니다. 또한 메시지를 전달 보장을 통해서 안전한 연동 방식을 지원 합니다. 이러한 특성으로 인해 대규모 시스템, 분산 시스템, 마이크로서비스 아키텍처에 널리 사용됩니다.
+Message Broker is used to integrate systems asynchronously. Kafka is a representative example, and message brokers are an excellent method for resolving blocking issues by removing dependencies between systems. It also supports secure integration through guaranteed message delivery. Due to these characteristics, it is widely used in large-scale systems, distributed systems, and microservice architectures.
 
-"장애 신고 및 처리" 예제에도 App과 BPM간의 의존성을 낮추고, 연동을 하기 위해서 비동기 방식인 Kafka를 사용하여 서로 장애 전파를 차단하고, 서로 시스템간에 영향도를 낮추는 작업을 했습니다.
+In the "Incident Reporting and Handling" example, we reduced dependency between App and BPM and used the asynchronous method Kafka to block failure propagation between them and reduce the impact between systems.
 
 #### 2.5 BPM(Subscriber)
-App에서 메시지가 발행될 때마다 수신되며, 조건에 따라 메시지를 분류할 수 있습니다.
+Messages are received whenever they are published from the App and can be classified according to conditions.
 
-#### 2.6 비동기 연동의 회복성
-비동기 방식의 장점 확인 하기 위해서 테스트를 진행 하였습니다. App과 BPM간에 서비스를 실행 중에 BPM의 서비스가 중지가 된 상태에서 App의 정상적인 실행 흐름을 가져가도록 하였습니다.
+#### 2.6 Resilience of Asynchronous Integration
+We conducted tests to verify the advantages of the asynchronous method. We ensured that the App maintained normal execution flow even when the BPM service was stopped during execution.
 
-App에서는 이전 예제와 같이 장애신고를 접수를 받는 상황이고, BPM 서비스는 중지되어 이벤트 수신을 못받는 상황을 테스트 하였습니다. 
+As in the previous example, the App was receiving incident reports, and we tested a scenario where the BPM service was stopped and unable to receive events. 
 
 
-1. 사용자는 장애신고를 App에서 정상적으로 신고를 접수하여 메시지브로커의 Kafka를 통해서 이벤트가 발생되었습니다.
+1. The user normally submitted an incident report through the App, and an event was generated through Kafka in the message broker.
     ![IMAGE](../../uengine-image/117.png)
-    [이미지 4] BPM 중지 상태
+    [Image 4] BPM Stopped State
 
-* 메시지 내용
+* Message content
 ```sh    
-{"eventType":"TroubleIssued","timestamp":1719386892341,"id":16,"troubleType":"sw","description":"프로그램이 실행안됩니다."}
-{"eventType":"TroubleCompleted","timestamp":1719386909644,"id":16,"description":"프로그램이 실행안됩니다.","reason":"버전을 업데이트 했습니다."}
+{"eventType":"TroubleIssued","timestamp":1719386892341,"id":16,"troubleType":"sw","description":"The program is not running."}
+{"eventType":"TroubleCompleted","timestamp":1719386909644,"id":16,"description":"The program is not running.","reason":"Updated the version."}
 ```    
-중지된 BPM의 상태와 상관 없이, App에서는 정상적인 "장애 신고"에 대한 업무를 진행하여, 이벤트가 발생된 것을 볼 수 있습니다.
+Regardless of the stopped BPM state, the App proceeded with normal "Incident Report" tasks, and we can see that events were generated.
 
 
 
-2. 중지된 BPM 실행을 하고, 이전 메시지를 처리 하는지 확인 해보겠습니다. 
+2. Let's restart the stopped BPM and check if it processes the previous messages.
 ![IMAGE](../../uengine-image/118.png)
-[이미지 5] BPM 재실행및 처리
+[Image 5] BPM Restart and Processing
 
-중지된 BPM이 재실행 되면, App에서 메시지브로커를 통해서 발생된 이벤트를 BPM이 이후에 받아서 처리 하는 것을 확인 할 수 있습니다.
+When the stopped BPM is restarted, we can confirm that it receives and processes the events generated through the message broker from the App.
 
 
-### 3. 프로세스 모델링
-"프로세스 정의" 에서 프로세스에 대한 정의를 진행합니다. 업무의 흐름을 정의하고 각 업무에 대해서 정의 할 수 있습니다. 
+### 3. Process Modeling
+Define the process in "Process Definition." You can define the workflow and define each task.
 
-#### 3.1 프로세스 변수 설정
-- App에서 처리된 값을 저장 하기 위해서는 BPM에서의 변수를 담을 수 있도록 선언을 해야 합니다. 변수를 설정 하는 방법은 "프로세스 정의" 부분에서 왼쪽 상단에 "프로세스 변수" 클릭하여 설정 할 수 있습니다.
-> text형식의 "TroubleType"변수를 선언합니다. 
+#### 3.1 Process Variable Settings
+- To store values processed in the App, variables must be declared in BPM. Variables can be set by clicking "Process Variables" in the upper left corner of the "Process Definition" section.
+> Declare a text format variable "TroubleType".
 ![IMAGE](../../uengine-image/108.png)
-[이미지 6] 프로세스 변수 설정
+[Image 6] Process Variable Settings
 
-#### 3.2 외부 어플리케이션 연동
-App과 BPM을 연동 하기 위해서는 App에서 처리된 정보를 바탕으로 BPM은 정보를 수신하여 해당 App을 처리 할 수 있도록 합니다. 
-연동하기 위해서는 User Task의 "외부 어플리케이션" 방식 선택하면 아래와 같은 방식으로 진행 합니다.
+#### 3.2 External Application Integration
+To integrate App and BPM, BPM receives information based on what was processed in the App to handle the App. For integration, select the "External Application" method in User Task and proceed as follows.
 ![IMAGE](../../uengine-image/100.png)
-[이미지 7] 외부 어플리케이션 연동
+[Image 7] External Application Integration
 
-##### 3.2.1 App 화면 설정
-화면에 대한 정의 하는 부분입니다. App에서 정의된 화면을 접근 가능하게 하여 App의 화면URL을 넣습니다.
-> Ex) App의 "장애 신고"화면 "http://localhost:8080/#/TroubleIssued" 정보를 넣습니다.
+##### 3.2.1 App Screen Settings
+This section defines the screen. Enter the App's screen URL to make the screen defined in the App accessible.
+> Ex) Enter the App's "Incident Report" screen information "http://localhost:8080/#/TroubleIssued".
 ![IMAGE](../../uengine-image/119.png)
-[이미지 8] App 화면 설정
+[Image 8] App Screen Settings
 
-##### 3.2.2 이벤트정의 설정
-App에서 정의한 이벤트를 수신 할 수 있도록 이벤트 타입을 설정 하는 부분입니다. 설정된 이벤트 타입을 기준으로 App에서 발송된 이벤트를 수신하여 업무를 진행하게 됩니다. 
-> Ex) "장애 신고"을 수신 할 수 있도록 "TroubleIssued"으로 설정합니다.
+##### 3.2.2 Event Definition Settings
+This section sets the event type to receive events defined in the App. Based on the set event type, events sent from the App are received to proceed with tasks.
+> Ex) Set it to "TroubleIssued" to receive "Incident Reports".
 ![IMAGE](../../uengine-image/120.png)
-[이미지 9] 이벤트정의 설정
+[Image 9] Event Definition Settings
 
-##### 3.2.3 이벤트 속성
-App에서 발생한 이벤트의 정보를 수신하여, 수신된 정보를 사용 할 수 있도록 변수를 선언 하는 부분 입니다.
-> Ex) "장애 신고"변수중 "troubleType"을 처리 위한 속성 처리. 
+##### 3.2.3 Event Properties
+This section declares variables to receive and use information from events generated by the App.
+> Ex) Processing the "troubleType" property from "Incident Report" variables.
 ![IMAGE](../../uengine-image/121.png)
-[이미지 10] 이벤트 속성
+[Image 10] Event Properties
 
-##### 3.2.4 이벤트 매핑
-해당 업무에서 필요한 정보를 매핑 작업을 통해서 값을 전달 하거나 저장을 하는 역할을 합니다. 수신한 이벤트의 정보를 가지고 프로세스 변수에 저장하기도 합니다.
-> Ex) 메시지의 속성값 "troubleType"을 프로세스 변수인"TroubleType"에 매핑
+##### 3.2.4 Event Mapping
+This role passes or stores values through mapping operations for information needed in the task. It can also store information from received events in process variables.
+> Ex) Mapping the message property value "troubleType" to the process variable "TroubleType"
 ![IMAGE](../../uengine-image/107.png)
-[이미지 11] 매핑 화면
+[Image 11] Mapping Screen
 
 
 
-### 4. 실행
+### 4. Execution
 
-1. "장애신고 및 처리" 프로세스 실행
-- 사용자가 장애신고를 하기 위해서는 "프로세스 정의 체계도"에서 "장애 신고 및처리"프로세스를 선택하여 우측 상단버튼을 통해서 진행 합니다.
+1. Execute "Incident Reporting and Handling" Process
+- For users to report incidents, select the "Incident Reporting and Handling" process from the "Process Definition Diagram" and proceed through the upper right button.
 ![IMAGE](../../uengine-image/103.png)
-[이미지 12] 프로세스 정보
+[Image 12] Process Information
 
-2. 사용자가 "장애 신고" 업무에서 장애 신청
-- 사용자가 App에서 제공한 화면에서 장애 내용을 입력합니다.
+2. User submits an "Incident Report" in the task
+- The user enters incident details on the screen provided by the App.
 ![IMAGE](../../uengine-image/114.png) 
-[이미지 13] 실행 화면
+[Image 13] Execution Screen
 
-3. 업무에 따른 화면 라우팅(엔지니어 업무 접수)
-- 사용자의 신고신청을 하게 되면, 신고접수 기준으로 엔지니어의 "할일 목록"에 나타납니다.
+3. Screen routing according to task (Engineer task reception)
+- When a user submits a report, it appears in the engineer's "To-Do List" based on the report reception.
 ![IMAGE](../../uengine-image/112.png) 
-[이미지 14] 엔지니어 업무 화면
+[Image 14] Engineer Task Screen
 
-4. 업무 완료 처리(엔지니어 장애 처리)
-- 사용자가 입력한 "장애 신고" 기반으로 장애 처리 내역을 입력합니다.
+4. Task completion processing (Engineer incident handling)
+- Based on the user's "Incident Report," the engineer enters incident handling details.
 ![IMAGE](../../uengine-image/113.png) 
-[이미지 15] 엔지니어 장애 처리
+[Image 15] Engineer Incident Handling
 
 
-### 5. 정리
-  App과 BPM간의 비동기식 메시지브로커를 경유한 Pub/Sub 방식의 비동기식 연동은 상호시스템간에 **결합도를 낮게** 하여, **장애 차단** 할 수 있습니다. 반면, 동기식 방식에서 상호 서비스간에 응답을 기다리기 때문에 BPM에서 장애가 발생하면 App에서도 장애가 전파가 되는 문제가 있습니다.
+### 5. Summary
+  The asynchronous Pub/Sub integration between App and BPM via an asynchronous message broker **reduces coupling** between systems and can **block failures.** In contrast, in the synchronous method, because services wait for responses from each other, if a failure occurs in BPM, it creates a problem where the failure propagates to the App.
 
-  그리고 비동기 방식으로 상호 서비스를 연동 할때, App에서 BPM의 호출에 따라서 변경되거나, 상호 시스템에 응답을 기다리는 부분이 없어서 상호 시스템간에 **비의존성**을 가집니다. 
+  Additionally, when integrating services asynchronously, there is **non-dependency** between systems since the App doesn't change based on BPM calls, and there is no waiting for responses between systems.
 
-  그에따라서 BPM 시스템이 중지된 상태에서도 App에서 발생한 이벤트를 BPM이 이후에 받아서 처리 할 수 있고, 상태를 **동기화** 할 수 있습니다. 이것은 기존의 동기식방식의 장애전파와 runtime간에 시스템 블로킹의 문제를 해소하는데 탁월한 방법이 됩니다.
+  Consequently, even when the BPM system is stopped, it can receive and process events generated by the App later and **synchronize** the state. This is an excellent method for resolving the issues of failure propagation and runtime system blocking in traditional synchronous methods.
 
- - 상호 시스템간에 응답을 기다리지 않아 **결합도 낮습니다.**
- - BPM에서는 장애및 여러가지 이유로 중지시 App에는 영향이 가지않아 **장애 차단** 할 수 있습니다.
- - 서로의 시스템에 대한 응답에 대한 분리및 같은 **비의존성**을 가집니다. 
- - BPM이 중지된 상태라도 이전에 발생된 이벤트를 **동기화** 할 수 있습니다.
+ - Systems don't wait for responses from each other, resulting in **low coupling.**
+ - When BPM stops due to failures or other reasons, it doesn't affect the App, allowing for **failure blocking.**
+ - There is **non-dependency** due to separation of responses and the same between systems.
+ - Even if BPM is stopped, it can **synchronize** previously generated events.
  
 
 
-## SOA (MSA) 아키텍처 예제 - Message
-- 외부 서비스와 메시지 이벤트를 이용하여 메시지를 전송 하고, 외부 서비스에서 처리 후에 외부 서비스에서 메시지를 전송을 하면, 메시지 이벤트가 수신 받은 후에 진행됩니다. Message Event Notation과 REST API를 이용하여 외부 시스템과 연동하는 방법을 예제를 통해 확인한다.
+## SOA (MSA) Architecture Example - Message
+- It uses message events to send messages to external services, and after the external service processes and sends a message back, it proceeds after receiving the message event. We will examine how to integrate with external systems using Message Event Notation and REST API through examples.
 
-### 1. 예제 시나리오
-장애 발생 시, 담당자 지정, 오류 내용 확인 후, 작업내역서 작성(외부 시스템), 처리 확인 완료의 단계로 진행된다.
+### 1. Example Scenario
+When an incident occurs, the process proceeds through the following steps: assigning a person in charge, checking the error content, creating a work report (external system), and completing the verification process.
 
-### 2. 예제 영상
+### 2. Example Video
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/bxkB-pkOpTQ?si=YRmhriPf_I49H1tw" 
@@ -307,9 +307,9 @@ App에서 발생한 이벤트의 정보를 수신하여, 수신된 정보를 사
 </div>
 <br>
 
-### 3. 예제 BPMN
+### 3. Example BPMN
 <details>
-  <summary>BPMN 보기</summary>
+  <summary>View BPMN</summary>
 
   ```xml
   <?xml version="1.0" encoding="UTF-8"?>
@@ -558,71 +558,71 @@ App에서 발생한 이벤트의 정보를 수신하여, 수신된 정보를 사
   ```
 </details>
 
-### 4. 예제 실행 과정
+### 4. Example Execution Process
 
-#### Step 1: BPMN Process 작성
-- **1.1** 아래 그림과 같이 2개의 Pool을 생성합니다. 오류 처리 Pool은 uEngine6가 동작 하는 Process, 오류 작업 내역 관리 Pool 은 외부 시스템의 역할을 합니다.
+#### Step 1: Creating BPMN Process
+- **1.1** Create two Pools as shown in the figure below. The Error Handling Pool is the Process where uEngine6 operates, and the Error Work History Management Pool plays the role of an external system.
     ![Lane Drawing](../../uengine-image/SOA-message-1.png)
 
-- **1.2** 생성 한 Pool 중, 오류 작업 내역 관리 Pool을 설정합니다. API URL은 서버의 Endpoint, Open API 스펙은 해당 서버의 Open API 스펙 정보를 입력합니다.
+- **1.2** Configure the Error Work History Management Pool from the created Pools. Enter the server's Endpoint for the API URL and the Open API specification information for the server's Open API spec.
     ![Pool Setting](../../uengine-image/SOA-message-2.png)
 
-- **1.3** 프로세스 변수를 설정합니다. 프로세스 변수는 Worker, Error, Status 세가지로 모두 String Type으로 지정합니다.
+- **1.3** Set up process variables. The process variables are Worker, Error, and Status, all specified as String Type.
     ![PV Setting](../../uengine-image/SOA-message-3.png)
 
-- **1.4** StartEvent와 UserTask를 추가합니다. 해당 UserTask에서는 Worker를 지정합니다.
+- **1.4** Add StartEvent and UserTask. In this UserTask, the Worker is designated.
     - UserTask
     ![UserTask](../../uengine-image/SOA-message-4.png)
-    - UserTask - 데이터 매핑
+    - UserTask - Data Mapping
     ![UserTask](../../uengine-image/SOA-message-5.png)
 
-- **1.5** UserTask를 추가합니다. 해당 UserTask에서는 오류 내용을 작성합니다.
+- **1.5** Add another UserTask. In this UserTask, error content is written.
     - UserTask
     ![UserTask](../../uengine-image/SOA-message-6.png)
-    - UserTask - 데이터 매핑
+    - UserTask - Data Mapping
     ![UserTask](../../uengine-image/SOA-message-7.png)
 
-- **1.6** MessageIntermediateThrowEvent를 추가합니다. 해당 Event에서는 등록 된 API를 호출합니다.
+- **1.6** Add MessageIntermediateThrowEvent. This Event calls the registered API.
     - MessageIntermediateThrowEvent
     ![MessageIntermediateThrowEvent](../../uengine-image/SOA-message-8.png)
 
-- **1.7** MessageIntermediateCatchEvent를 추가합니다. 해당 Event에서는 등록 서비스 경로로 관계키가 들어오면 해당 Event가 완료처리 됩니다.
+- **1.7** Add MessageIntermediateCatchEvent. This Event is completed when the relationship key comes into the registered service path.
     - MessageIntermediateCatchEvent
     ![MessageIntermediateCatchEvent](../../uengine-image/SOA-message-9.png)
 
-- **1.8** 외부 시스템과 연결합니다. 외부 시스템은 실제로 BPM은 동작하지 않으므로, 의미적으로 노테이션을 그려 연결합니다.
-    - 외부 시스템
+- **1.8** Connect with the external system. Since the external system does not actually operate the BPM, draw notations semantically to connect.
+    - External System
     ![MessageIntermediateCatchEvent](../../uengine-image/SOA-message-10.png)
 
-- **1.9** 작업 완료 확인 UserTask와 EndEvent를 추가합니다. 해당 Task에서는 완료를 확인 후, EndEvent를 통해 프로세스가 종료됩니다.
+- **1.9** Add a work completion confirmation UserTask and EndEvent. In this Task, after confirming completion, the process ends through the EndEvent.
     - UserTask
     ![UserTask](../../uengine-image/SOA-message-11.png)
-    - UserTask - 데이터 매핑
+    - UserTask - Data Mapping
     ![UserTask](../../uengine-image/SOA-message-12.png)
 
-#### Step 2: Process의 실행
-- **2.1** 프로세스를 실행합니다. 첫 업무에서는 Worker를 지정합니다.
+#### Step 2: Execution of the Process
+- **2.1** Execute the process. In the first task, designate the Worker.
 ![UserTask](../../uengine-image/SOA-message-13.png)
 
-- **2.2** 다음 업무를 진행합니다. 해당 업무에서는 오류 내용을 작성합니다.
+- **2.2** Proceed to the next task. In this task, write the error content.
 ![UserTask](../../uengine-image/SOA-message-14.png)
 
-- **2.3** 프로세스를 실행합니다. 오류 내용을 작성합니다.
+- **2.3** Execute the process. Write the error content.
 ![UserTask](../../uengine-image/SOA-message-15.png)
 
-- **2.4** 프로세스를 실행합니다. 오류 내용을 작성합니다.
+- **2.4** Execute the process. Write the error content.
 ![UserTask](../../uengine-image/SOA-message-16.png)
 
-- **2.5** 프로세스를 실행합니다. 오류 내용을 작성합니다.
+- **2.5** Execute the process. Write the error content.
 ![UserTask](../../uengine-image/SOA-message-17.png)
 
-- **2.6** 프로세스를 실행합니다. 오류 내용을 작성합니다.
+- **2.6** Execute the process. Write the error content.
 ![UserTask](../../uengine-image/SOA-message-18.png)
 
-## REST API 연동 [<span style="color:red;font-size: 0.8em;">NOT RECOMMENDED</span>]
-- 외부 서비스와 uEngine6 BPM은 간에 직접적인 통신을 하는 방법입니다. 외부 서비스에 uEngine6 BPM으로 직접적으로 호출을 하고 응답을 받아서 진행되며, 외부 서비스의 업무가 변경되면 uEngine6 BPM도 함께 변경되어야 합니다. 또한 동기 방식으로 진행되어 외부 서비스 또는 BPM의 장애발생시 전파되어 서로 영향도를 가지게 됩니다.
+## REST API Integration [<span style="color:red;font-size: 0.8em;">NOT RECOMMENDED</span>]
+- This is a method of direct communication between external services and uEngine6 BPM. It proceeds by directly calling from external services to uEngine6 BPM and receiving responses, and if the external service's task changes, uEngine6 BPM must change together. Additionally, since it proceeds synchronously, when a failure occurs in either the external service or BPM, it propagates and affects each other.
 
-<span style="color:red;">[Warning] 외부 어플리케이션 연동(REST API)는 프로세스 모델링 시 권장되지 않습니다.</span>
+<span style="color:red;">[Warning] External application integration (REST API) is not recommended when modeling processes.</span>
 
 
 

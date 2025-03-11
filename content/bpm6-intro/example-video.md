@@ -3,11 +3,11 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 기능 데모 영상
+# Feature Demo Videos
 
 <br>
 
-<h3>uEngine6 BPM 데모 (Full)</h3>
+<h3>uEngine6 BPM Demo (Full Version)</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/ZmytoLlvpMs" 
@@ -16,7 +16,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>BPM 프로세스 기본</h3>
+<h3>Basic BPM Process</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/fyoGZStLlVo" 
@@ -25,7 +25,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>서브 프로세스 설정</h3>
+<h3>Subprocess Configuration</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/nhQCDfYa6Gk" 
@@ -34,7 +34,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>조건 설정 분기</h3>
+<h3>Conditional Branching</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/J-xUC4WJ2C8" 
@@ -43,7 +43,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>폼 매핑</h3>
+<h3>Form Mapping</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/1tCKnzck2-c" 
@@ -52,7 +52,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>이벤트 기반 시스템 연동</h3>
+<h3>Event Based System Integration</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/E-tjj20-xxI" 
@@ -61,7 +61,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>메시지 기반 시스템 연동</h3>
+<h3>Message Based System Integration</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/bxkB-pkOpTQ" 
@@ -70,7 +70,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>프로세스 애니메이션</h3>
+<h3>Process Animation</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/KFjiHCRhxpo" 
@@ -79,7 +79,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>타이머 이벤트</h3>
+<h3>Timer Event</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/rvUB2aBK4HU" 
@@ -88,7 +88,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>프로세스 진행 중 이벤트 처리</h3>
+<h3>Event Handling During Process Execution</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/UqqXw6bU7GA" 
@@ -97,7 +97,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>AI Agent Form Completion - uEngine6를 사용한 폼 생성</h3>
+<h3>AI Agent Form Completion - Form Creation Using uEngine6</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/PNNX4_mNeH0" 
@@ -106,7 +106,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>process-gpt 시스템 연동 자동화</h3>
+<h3>Process-GPT System Integration Automation</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/pR7AAnxWZ3M" 
@@ -115,7 +115,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>process-gpt 음성명령</h3>
+<h3>Process-GPT Voice Commands</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/zLWA2lzAZIg" 
@@ -124,7 +124,7 @@ sidebar: 'getting-started'
 </div>
 <br><br>
 
-<h3>AI를 활용한 프로세스 자동생성</h3>
+<h3>AI-Driven Process Auto-Generation</h3>
 <div style="position: relative; padding-bottom: 56.25%; padding-top: 0px; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
         src="https://www.youtube.com/embed/DI4vLwijsMs" 

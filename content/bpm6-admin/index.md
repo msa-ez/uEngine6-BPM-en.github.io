@@ -3,23 +3,23 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 관리자 페이지 기능 및 소개
-관리자 페이지는 프로세스 관리를 위한 페이지 입니다. 프로세스 관리자 페이지는 좌측 상단에 존재 하며, 실행된 프로세스의 상태인 인스턴스 관리및 인스턴스의 진행상태를 확인 할 수 있는 페이지 입니다. 관리자 페이지에서는 아래와 같은 기능을 확인 할 수 있습니다.
-  - 인스턴스 검색 기능
-  - 인스턴스 상태 확인
-  - 인스턴스의 데이터정보 상태 확인
-  - 인스턴스의 작업상태 되돌리기
+# Administrator Page Features and Overview
+The administrator page is a page for process management. The process manager page exists in the upper left corner and is a page where you can check the status of executed processes, called instances, and check the progress status of instances. On the administrator page, you can check the following functions.
+  - Instance search function
+  - Instance status check
+  - Check the data information status of the instance
+  - Rollback the work status of the instance
 
 <img width="592" alt="스크린샷 2024-12-24 오후 5 05 49" src="https://github.com/user-attachments/assets/82a83437-179f-4744-a212-a7641db9636f" />
 
-## 인스턴스 관리기능
+## Instance Management Function
 
-### 인스턴스 목록 관리 표시 및 검색
-프로세스 실행시 인스턴스가 생성되며, 관리자 페이지에서는 여러개의 인스턴스를 검색을 통해서 확인 할 수 있습니다. 인스턴스 목록에는 서브프로세스 여부와 현재 작업의 상태를 볼 수 있도록 구성 되어 있으며, 각 인스턴스의 상태를 확인 할 수 있습니다.
+### Instance List Management Display and Search
+When a process is executed, an instance is created, and on the administrator page, you can check multiple instances through search. The instance list is configured to show whether it is a subprocess and the status of the current task, and you can check the status of each instance.
 ![스크린샷 2024-12-26 오후 2 58 15](https://github.com/user-attachments/assets/69bbcd26-e68b-40b1-a586-421c2d0412ab)
-이미지) 인스턴스 목록
+Image) Instance list
 
-인스턴스 목록에서 "작업" 컬럼명 클릭시 해당 인스턴스의 상태를 확인 할 수 있습니다. 상세 내역에서는 왼쪽에는 작업의 상태를 표시하고, 오른쪽에는 작업시 입력했던 데이터를 확인 할 수 있습니다.
+When you click on the "Task" column name in the instance list, you can check the status of that instance. In the detailed view, the left side displays the status of the task, and the right side allows you to check the data that was entered during the task.
 <table>
   <tr>
     <td>
@@ -30,10 +30,10 @@ sidebar: 'getting-started'
     </td>
   </tr>
 </table>
-이미지) 실행중인 인스턴스 확인
+Image) Checking a running instance
 
-### 인스턴스 상태 관리
-각 인스턴스에서 작업을 취소하거나 재작업이 필요한 경우, 해당 작업 상태로 되돌리는 기능을 제공합니다. 되돌리려면 원하는 인스턴스를 선택하고, 해당 지점의 업무로 이동하여 "되돌리기" 버튼을 클릭하면 됩니다. 되돌리기를 수행하면 이후 진행했던 작업은 취소 상태로 변경되고, 해당 업무는 "Running" 상태로 변경됩니다. 서브프로세스 내부에서 되돌리기를 수행하면 서브프로세스의 인스턴스도 "Running" 상태로 변경됩니다.
+### Instance Status Management
+In case you need to cancel a task or rework it in each instance, functionality is provided to roll back to that task status. To roll back, select the desired instance, move to the task at that point, and click the "Rollback" button. When rollback is performed, subsequent tasks are changed to a canceled status, and the corresponding task is changed to a "Running" status. If rollback is performed within a subprocess, the instance of the subprocess is also changed to a "Running" status.
 
 <img width="195" alt="스크린샷 2024-12-26 오후 2 37 30" src="https://github.com/user-attachments/assets/7a656e0e-e163-4b3e-9704-1961937a437e" />
-이미지) 되돌리기 버튼
+Image) Rollback button

@@ -5,7 +5,7 @@ prev: ''
 next: ''
 ---
 
-# uEngine6 트랜잭션 리스너
+# uEngine6 Transaction Listener
 
 Main interface of ProcessTransactionListener is as follows:
 
@@ -20,13 +20,13 @@ public interface ProcessTransactionListener {
 }
 ```
 
-하나의 트랜잭션 내에 여러개의 메인과 서브 프로세스 인스턴스, 그리고 심지어 멀티플 인스턴스가 생성되었다가 한번에 저장되어야 하기 때문에, 액티비티들을 실행하면서 발생하는 모든 프로세스 인스턴스의 상태나 프로세스 변수의 값을 JPA Repository 를 통하여 매번 읽고 쓰고가 생길때마다 SQL 을 DB 로 전송했다가는 성능 저하가 심각하게 발생하여 uEngine 은 전통적으로 DAO 에 대한 Caching 프레임워크를 자체적으로 개발하여 사용하고 있었다.
+The transactional management in uEngine6 was reimagined to address performance challenges. Since multiple instances (main processes, sub-processes, and even multiple instances) need to be created and saved within a single transaction, continuously reading and writing process instance states and variable values through JPA Repository with SQL transmissions to the database for every change would cause serious performance degradation. Traditionally, uEngine developed and used its own caching framework for DAOs to mitigate this issue.
 
-uEngine6 에서는 대대적으로 기존 자체 기술을 Spring 기반의 가능한 표준 기술로 대체하기로 한바, JPA 기반으로 기존 동작을 구현하기로 하였다.
+In uEngine6, there was a major initiative to replace proprietary technologies with standard Spring-based technologies where possible, so they decided to implement the existing functionality based on JPA.
 
-해서 하나의 Request 에 유일한 완료시점에 변경된 프로세스 인스턴스들만 마지막 상태값을 저장할 수 있어야 한다.
+The goal was to save only the modified process instances at a unique completion point of a single request, capturing just their final state values.
 
-저자가 Spring 을 잘 몰라서 그런지 여러방법 (Application Event 등) 들을 써봤으나, 제대로 한번만 호출이 안되는 관계로, 결국 서비스단에서 다음과 같이 애노테이션을 주면, 이를 advice 가 걸러내어 시작시점과 완료시점에 수정된 인스턴스들만 걸러내어 저장 시켜주는 프레임워크를 만들게 되었다:
+The author, admittedly not very familiar with Spring, tried various methods (including Application Events) but couldn't get them to execute just once properly. Eventually, they created a framework at the service layer where an annotation could be applied, and an advice would filter it to save only the modified instances at the start and completion points:
 
 
 ```java
@@ -37,7 +37,7 @@ public void putWorkItem(@PathVariable("taskId") String taskId, @RequestBody Work
 ```
 
 
-결론적으로, 기존에 트랜잭션을 걸기위해서 스프링에서 @Transactional 을 선언한다고 하면, 거기에 보태어 @ProcessTransactional 하나만 더 선언해주기만 하면 된다. 위와 같이 선언해주면, 다음의 Advice 가 등록된 TransactionListener 들 각자에 beforeCommit, beforeRollback 을 콜백받을 기회를 주게된다:
+In conclusion, whereas previously you would declare @Transactional in Spring to establish a transaction, now you simply need to add one more declaration: @ProcessTransactional. When declared this way, the following Advice gives registered TransactionListeners the opportunity to receive callbacks for beforeCommit and beforeRollback:
 
 
 ```java
@@ -68,7 +68,7 @@ public class ProcessTransactionAdvice {
 }
 ```
 
-JPAProcessInstance 는 자기 자신이 생성되는 순간, ThreadLocal 객체로 존재하는 ProcessTransactionContext 에 자신을 등록하고, beforeCommit() 에서 자신을 최종으로 한번만 저장하는 로직을 응집도 있게 구현하고 있다:
+The JPAProcessInstance registers itself to the ProcessTransactionContext (which exists as a ThreadLocal object) at the moment of its creation, and then implements a cohesive logic to save itself only once in its final state during the beforeCommit() method:
 
 
 
@@ -76,7 +76,7 @@ JPAProcessInstance 는 자기 자신이 생성되는 순간, ThreadLocal 객체�
 ```java
 package org.uengine.five;
 ...
-public class JPAProcessInstance extends DefaultProcessInstance implements ProcessTransactionListener { // JPAProcessInstance 는 ProcessTransactionListener 이다.
+public class JPAProcessInstance extends DefaultProcessInstance implements ProcessTransactionListener { // JPAProcessInstance is a ProcessTransactionListener.
 
    ...
 
@@ -85,7 +85,7 @@ public class JPAProcessInstance extends DefaultProcessInstance implements Proces
 ...
 
         //Add this instance as transaction listener and register this so that it can be cached.
-        // JPAProcessInstance 가 어떻게든 생성되면, 자신을 ProcessTransactionContext 에 등록한다.
+        // When a JPAProcessInstance is created in any way, it registers itself in the ProcessTransactionContext.
         ProcessTransactionContext.getThreadLocalInstance().addTransactionListener(this);
         ProcessTransactionContext.getThreadLocalInstance().registerProcessInstance(this);
 ....
@@ -94,7 +94,7 @@ public class JPAProcessInstance extends DefaultProcessInstance implements Proces
     }
 ...
 
-//   자신이 커밋되기 직전에 자신의 수정된 사항들을 한번에 저장한다. 파일과 DB 를 저장하고 있다.
+//   Just before it is committed, it saves all its modifications at once. It saves to both file and DB.
 
     @Override
     public void beforeCommit(ProcessTransactionContext tx) throws Exception {
@@ -107,8 +107,8 @@ public class JPAProcessInstance extends DefaultProcessInstance implements Proces
 ...
 }
 ```
-## 사용 확장
-만약, JPAProcessInstance 와 같이 애플리케이션 로직에서 구현한 것들도 한번에 이벤트를 받아 캐시된 정보를 최종적으로 한번만 저장해야 하는 필요성이 있다면 아래와 같이 구현하면 될 것이다:
+## Usage Extension
+If there's a need for application logic implementations (similar to JPAProcessInstance) to receive events once and save cached information only at the final stage, they could be implemented as follows:
 
 ```java
 executeActivity(....){

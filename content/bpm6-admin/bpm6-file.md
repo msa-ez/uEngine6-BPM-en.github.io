@@ -3,64 +3,64 @@ description: ''
 sidebar: 'getting-started'
 ---
 
-# 데이터 관리 - 파일
+# Data Management - Files
 ---
-uEngine6 BPM에서는 파일을 통해 프로세스 정의, 정의 버전, 인스턴스 목록, payloads, logs를 관리합니다. 데이터베이스에서도 기본적인 정보를 관리하지만, 파일에는 보다 상세한 정보를 저장합니다. 프로세스 정의관련 해서는 데이터베이스보다 파일에서 더 중요하게 다루어집니다.
+uEngine6 BPM manages process definitions, definition versions, instance lists, payloads, and logs through files. While basic information is also managed in the database, more detailed information is stored in files. Process definition-related information is handled more importantly in files than in the database.
 
 
-## 기본 구조
-프로세스 정의, 인스턴스, 로그, payloads 폴더는 파일로 관리하며, 인스턴스의 상세정보및 각 업무의 상태 등을 파일로 관리합니다.
+## Basic Structure
+Process definitions, instances, logs, and payloads folders are managed as files, and detailed information about instances and the status of each task are managed as files.
 
 ```text
-[폴더 구조]
+[Folder Structure]
 /bpm
-  /definitions (프로세스 정의 목록)
-  /archive     (프로세스 정의 버전)
-  /instances   (인스턴스 목록)
-  /logs        (logs 관리)
-  /payloads    (payload 관리)
+  /definitions (Process definition list)
+  /archive     (Process definition versions)
+  /instances   (Instance list)
+  /logs        (logs management)
+  /payloads    (payload management)
 ```
 
-### 프로세스 정의
-  + 사용자가 정의한 프로세스가 bpmn 형식의 파일로 저장이 됩니다. 해당 폴더는 시뮬레이션시 실행되는 폴더로 현재 프로세스가 배포되기 전 테스트를 할때 사용되며, 버전 관리 이전에 중간 저장되는 폴더 입니다.
+### Process Definition
+  + The process defined by the user is saved as a file in bpmn format. This folder is used when running simulations, used for testing before the current process is deployed, and is an intermediate storage folder before version management.
 ```text
-예시) 프로세스 정의 폴더 구조
+Example) Process definition folder structure
 /definitions
-	/service-process.bpmn (파일)
+	/service-process.bpmn (file)
 ```
 
-### 프로세스 정의 버전
-  + 사용자가 정의한 프로세스가 실제 배포되어, 실행되는 폴더 입니다. 사용자가 프로세스 실행시 항상 최신 버전의 파일이 실행됩니다. 버전관리는 "archive" 폴더 하위에 "{프로세스명}.bpmn" 폴더가 생성되며, 해당 폴더 하위에 버전별로 파일이 저장됩니다.
+### Process Definition Version
+  + This is the folder where the process defined by the user is actually deployed and executed. When a user executes a process, the latest version of the file is always executed. For version management, a "{process name}.bpmn" folder is created under the "archive" folder, and files are stored by version under that folder.
 ```text
-예시) 프로세스 정의시 버전 저장 형태
-/archive (폴더)
-	/service-process.bpmn (폴더)
-		/0.1.bpmn (파일)
+Example) Format of version storage when defining process
+/archive (folder)
+	/service-process.bpmn (folder)
+		/0.1.bpmn (file)
 ```
 
-### 인스턴스 목록
-  + 프로세스 실행시 생성되는 단위인 인스턴스는 데이터베이스에는 기본적인 데이터만 저장이 되며, 이 외의 데이터인 인스턴스의 상태, 저장된 데이터값, 각 업무의 상태 등을 해당 파일에 저장되 됩니다. "instances" 폴더 하위에 고유 번호인 인스턴스 번호로 파일이 생성되며, 파일은 xml 형식으로 저장됩니다.
+### Instance List
+  + When a process is executed, only basic data of the instance, which is the unit created during process execution, is stored in the database, and other data such as the status of the instance, stored data values, and the status of each task are stored in the corresponding file. Under the "instances" folder, files are created with the instance number, which is a unique number, and files are stored in xml format.
 ```text
-예시) 인스턴스 목록 폴더 구조
+Example) Instance list folder structure
 /instances
 	/1
-	/... (파일)
+	/... (file)
 ```
 
-### logs 관리
-  + 프로세스 실행시 DEBUG 레벨에 설정에 따라서 정보, 오류, 경고와 같은 로그 정보가 loggback을 통해서 로그가 저장이 됩니다. 프로레스 처리과정에서 오류 발생시 파일로 저장이 되며, 매일 파일이 생성되어 관리됩니다. "logs" 폴더 하위에 파일이 생성되며, 파일은 현재 날짜로 일자별 파일명으로 생성되어 관리됩니다.
+### Logs Management
+  + During process execution, log information such as information, errors, and warnings are stored through logback according to the DEBUG level settings. When an error occurs during the process handling, it is saved as a file, and files are created and managed daily. Files are created under the "logs" folder, and files are created and managed with filenames by date with the current date.
 ```text
-예시) 로그 폴더 구조
+Example) Log folder structure
 /logs
-	/bpm_YYYYMMDD.log(파일)
+	/bpm_YYYYMMDD.log(file)
 ```
 
-### payload 관리
-  + 프로세스 처리과정에서 사용자가 전달 했던 값을 인스턴스단위로 값을 저장하는 폴더 입니다. 사용자가 전달한 값을 저장 하여 추후 오류, 원인 파악, 값 확인 할때 사용됩니다. "payloads" 폴더 하위에 인스턴스 번호로 파일이 생성되며, 파일은 xml 형식으로 저장됩니다.
+### Payload Management
+  + This is a folder that stores values by instance units that users delivered during the process handling. It stores the values provided by users and is used to check for errors, identify causes, and verify values later. Files are created with the instance number under the "payloads" folder, and files are stored in xml format.
 ```text
-예시) payload 폴더 구조
+Example) Payload folder structure
 /payloads
-	/{instance_id}(파일)
+	/{instance_id}(file)
 
 
 

@@ -5,20 +5,20 @@ sidebar: 'getting-started'
 
 # API Reference
 
-- **[uEngine6 의 모든 API 들은 REST MM 3 인 Hateoas(HAL) 수준을 준수한다](https://en.wikipedia.org/wiki/HATEOAS)**
+- **[All APIs of uEngine6 comply with the REST MM 3 Hateoas(HAL) level](https://en.wikipedia.org/wiki/HATEOAS)**
 
-## Definition 관리
+## Definition Management
 
 ### `/definition`
 - **Method**: GET
-- **Description**: 저장 된 Definition 목록을 확인 할 수 있다.
+- **Description**: You can check the list of saved Definitions.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 
 ```sh
 http GET http://localhost:8088/definition
 ```
-- **결과**
+- **Result**
 ```json
 {
     "_embedded": {
@@ -48,13 +48,13 @@ http GET http://localhost:8088/definition
 
 ### `/versions/**`
 - **Method**: GET
-- **Description**: Definition의 버전 목록.
+- **Description**: Version list of Definitio.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET http://localhost:8088/versions/test/test.bpmn
 ```
-- **결과**
+- **Result**
 ```json
 {
     "_embedded": {
@@ -84,13 +84,13 @@ http GET http://localhost:8088/versions/test/test.bpmn
 
 ### `/definition/**`
 - **Method**: PUT
-- **Description**: 폴더 이름 변경 및 이동
+- **Description**: Folder rename and move
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http PUT :9093/definition/new%20folder name="new folder2" path="new folder2"
 ```
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -106,13 +106,13 @@ http PUT :9093/definition/new%20folder name="new folder2" path="new folder2"
 ```
 
 - **Method**: POST
-- **Description**: 폴더 생성.
+- **Description**: Folder creation.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http POST localhost:9093/definition name="new folder" directory=true
 ```
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -127,25 +127,25 @@ http POST localhost:9093/definition name="new folder" directory=true
 }
 ```
 - **Method**: DELETE
-- **Description**: definition 삭제
+- **Description**: definition deletion
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http DELETE localhost:9093/definition/new%20folder
 ```
 
 ### `/definition/raw/**`
 - **Method**: POST, PUT
-- **Description**: Definition 정의 저장 및 수정
+- **Description**: Save and modify Definition definition
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
-# @이후에는 bpmn 파일 경로
+# @After that is the bpmn file path
 http POST :9093/definition/raw/test.bpmn definition=@test-origin.bpmn
 http PUT :9093/definition/raw/test.bpmn definition=@test-origin.bpmn
 ```
 
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -166,14 +166,14 @@ http PUT :9093/definition/raw/test.bpmn definition=@test-origin.bpmn
 }
 ```
 - **Method**: GET
-- **Description**: Definition 정의 수신.
+- **Description**: Receive Definition definition.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET :9093/definition/raw/test.bpmn 
 ```
 
-- **결과**
+- **Result**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:uengine="http://uengine" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0bfky9r" name="test-woori" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="16.4.0">
@@ -188,19 +188,19 @@ http GET :9093/definition/raw/test.bpmn
       <bpmn:extensionElements>
         <uengine:properties>
           <uengine:json>{}</uengine:json>
-          <!-- 이하 생략 -->
+          <!-- Omitted below -->
 ```
 ### `/definition/system/**`
 - **Method**: POST, PUT
-- **Description**: 외부 시스템 등록.
+- **Description**: External system registration.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http PUT localhost:9093/definition/system/test name="test" description="test" spec="test" url="test"
 http POST localhost:9093/definition/system/test name="test" description="test" spec="test" url="test"
 ```
 
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -223,13 +223,13 @@ http POST localhost:9093/definition/system/test name="test" description="test" s
 
 ### `/definition/system`
 - **Method**: GET
-- **Description**: 외부 시스템 목록 수신.
+- **Description**: Receive external system list.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET localhost:9093/definition/system
 ```
-- **결과**
+- **Result**
 ```json
 {
     "_embedded": {
@@ -276,9 +276,9 @@ http GET localhost:9093/definition/system
 
 ### `/definition/map`
 - **Method**: POST, PUT
-- **Description**: Process Definition Map 등록 및 수정.
+- **Description**: Process Definition Map registration and modification.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http POST http://localhost:9093/definition/map mega_proc_list:='[
     {
@@ -298,7 +298,7 @@ http POST http://localhost:9093/definition/map mega_proc_list:='[
     }
 ]'
 ```
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -320,13 +320,13 @@ http POST http://localhost:9093/definition/map mega_proc_list:='[
 ```
 
 - **Method**: GET
-- **Description**: Proecss Definition Map 수신
+- **Description**: Receive Process Definition Map
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET localhost:9093/definition/map
 ```
-- **결과**
+- **Result**
 ```json
 {
     "mega_proc_list": [
@@ -351,13 +351,13 @@ http GET localhost:9093/definition/map
 
 ### `/definition/release/{releaseVersion}`
 - **Method**: GET
-- **Description**: 버전 릴리즈 및 해당 버전 다운로드 - 브라우저에서 동작 가능
+- **Description**: Version release and download the version - Can work in browser
 - **Produces**: application/json;charset=UTF-8
 - **실행** 
 ```sh
 http GET localhost:9093/definition/release/v1.0
 ```
-- **결과**
+- **Result**
 ```json
 HTTP/1.1 200
 Connection: keep-alive
@@ -375,7 +375,7 @@ Keep-Alive: timeout=60
 ```
 ### `/definition/upload`
 - **Method**: POST
-- **Description**: 릴리즈 된 버전 파일 업로드
+- **Description**:  Upload released version file
 - **Consumes**: multipart/form-data
 - **Produces**: application/json;charset=UTF-8
 
@@ -383,15 +383,15 @@ Keep-Alive: timeout=60
 
 ### `/instance`
 - **Method**: POST, PUT
-- **Description**: 인스턴스 실행.
+- **Description**: Instance execution.
 - **Consumes**: application/json;charset=UTF-8
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http POST :9094/instance 'processDefinitionId=test/troubleTicket' 'roleMappings[0][name]=initiator' 'roleMappings[0][endpoints][0]=manager' 'roleMappings[0][resourceNames][0]=Initiator'
 ```
 
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -427,14 +427,14 @@ http POST :9094/instance 'processDefinitionId=test/troubleTicket' 'roleMappings[
 ```
 ### `/instance/{instanceId}`
 - **Method**: GET
-- **Description**: 인스턴스 정보 수신
+- **Description**: Receive instance information
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET :9094/instance/22
 ```
 
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -471,13 +471,13 @@ http GET :9094/instance/22
 
 ### `/instance/{instanceId}/eventList`
 - **Method**: GET
-- **Description**: 인스턴스에 사용 가능 한 이벤트 목록
-- **호출**
+- **Description**: List of events available to the instance
+- **Call**
 ```sh
 http GET :9094/instance/22/eventList
 ```
 
-- **결과**
+- **Result**
 ```json
 [
     {
@@ -489,13 +489,13 @@ http GET :9094/instance/22/eventList
 
 ### `/instance/{instanceId}/activity/{tracingTag}/backToHere`
 - **Method**: POST
-- **Description**: 해당 액티비티로 RollBack
+- **Description**: RollBack to the activity
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http POST :9094/instance/22/activity/Activity_0tpln90/backToHerehttp POST :9094/instance/22/activity/Activity_0tpln90/backToHere
 ```
-- **결과**
+- **Result**
 ```json
 {
     "_links": {
@@ -563,13 +563,13 @@ http POST :9094/instance/22/activity/Activity_0tpln90/backToHerehttp POST :9094/
 
 ### `/instance/{instanceId}/variables`
 - **Method**: GET
-- **Description**: 인스턴스 변수 목록
+- **Description**: Instance variable list
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET :9094/instance/22/variables
 ```
-- **결과**
+- **Result**
 ```json
 {
     ":MESSAGE_event:prop": "Event_045vefp",
@@ -723,13 +723,13 @@ http GET :9094/instance/22/variables
 ```
 ### `/instance/{instanceId}/status`
 - **Method**: GET
-- **Description**: 각 Task 별 진행 상태
+- **Description**: Progress status by Task
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET :9094/instance/22/status
 ```
-- **결과**
+- **Result**
 ```json
 {
     "Activity_0bk0z80": "Ready",
@@ -738,13 +738,13 @@ http GET :9094/instance/22/status
 ```
 ### `/instance/{instanceId}/running`
 - **Method**: GET
-- **Description**: 실행 중인 Task 목록
+- **Description**: List of running Tasks
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET :9094/instance/22/running
 ```
-- **결과**
+- **Result**
 ```json
 [
     {
@@ -790,13 +790,13 @@ http GET :9094/instance/22/running
 ```
 ### `/instance/{instanceId}/completed`
 - **Method**: GET
-- **Description**: 완료 된 Task 목록
+- **Description**: List of completed Tasks
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http GET :9094/instance/22/completed
 ```
-- **결과**
+- **Result**
 ```json
 [
     {
@@ -844,36 +844,36 @@ http GET :9094/instance/22/completed
 ```
 ### `/instance/{instId}/variable/{varName}`
 - **Method**: GET
-- **Description**: 인스턴스의 프로세스 변수
-- **호출**
+- **Description**: Process variable of the instance
+- **Call**
 ```sh
 http GET :9094/instance/22/variable/test-one
 ```
-- **결과**
+- **Result**
 ```json
 aaa
 ```
 
 ### `/instance/{instId}/task/{taskId}/variable/{varName}`
 - **Method**: GET
-- **Description**: task에서 사용 된 변수 정보.
-- **호출**
+- **Description**: Variable information used in task.
+- **Call**
 ```sh
 http GET :9094/instance/22/task/25/variable/test-one
 ```
-- **결과**
+- **Result**
 ```json
 aaa
 ```
 
 ### `/instance/{instId}/role-mapping/{roleName}`
 - **Method**: GET
-- **Description**: Instance RoleMapping 정보.
-- **호출**
+- **Description**: Instance RoleMapping information.
+- **Call**
 ```sh
 http GET :9094/instance/22/role-mapping/manager
 ```
-- **결과**
+- **Result**
 ```json
 {
     "assignParam1": null,
@@ -907,32 +907,32 @@ http GET :9094/instance/22/role-mapping/manager
 
 ### `/instance/{instanceId}/fire-message`
 - **Method**: POST
-- **Description**: instane에 메시지 발행.
-- **호출**
+- **Description**: Publish message to instance.
+- **Call**
 ```sh
 http POST :9094/instance/22/fire-message message="message"
 ```
-- **결과**
+- **Result**
 ```json
 ```
 
 ### `/instance/shutdown`
 - **Method**: POST
-- **Description**: Process-service 종료 API
-- **호출**
+- **Description**: Process-service shutdown API
+- **Call**
 ```sh
 http GET :9094/instance/22/eventList
 ```
 
 ### `/dry-run/**`
 - **Method**: GET
-- **Description**: 드라이 런으로 인스턴스 실행.
+- **Description**: Run instance as dry run.
 - **Produces**: application/json;charset=UTF-8
-- **호출**
+- **Call**
 ```sh
 http :9094/dry-run/test-woori
 ```
-- **결과**
+- **Result**
 ```json
 {
     "activity": {
@@ -958,5 +958,5 @@ http :9094/dry-run/test-woori
                 }
             ],
 ...
-// 중략
+// Omitted
 ```

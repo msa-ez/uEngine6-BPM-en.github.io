@@ -5,84 +5,84 @@ sidebar: 'getting-started'
 
 ---
 
-### 여신관리 프로세스
+### Loan Management Process
 
-아래 프로세스는 uEngine6 프로세스 모델러를 활용해서 대출 승인 및 실행 과정을 모델링하는 방법을 설명합니다. 이 다이어그램은 대출 신청부터 실행, 연체 확인, 그리고 추심까지의 흐름을 보여줍니다.
+The process below explains how to model the loan approval and execution process using the uEngine6 process modeler. This diagram shows the flow from loan application to execution, delinquency verification, and collection.
 
 ![](../../uengine-image/process-writing_1.svg)
 
-#### 프로세스 개요
-이 프로세스는 여신 관리 프로세스에 대해 설명하는 부분입니다. 대출이 어떻게 접수되고, 승인되며, 실행되는지에 대한 흐름을 설명합니다. 주요 단계는 다음과 같습니다:
+#### Process Overview
+This section explains the loan management process. It explains the flow of how loans are received, approved, and executed. The main steps are as follows:
 
-1. **대출 신청**: 고객이 대출을 신청합니다.
-2. **접수**: 담당 부서에서 신청을 접수합니다.
-3. **대출 승인 여부 결정**: 승인되면 실행, 거절되면 종료됩니다.
-4. **대출 실행 후 연체 여부 확인**: 대출 실행 후 일정 기간마다 연체 여부를 확인합니다.
-   - 연체 발생 시: 추가적인 관리가 필요합니다.
-   - 연체가 없으면: 정상적으로 유지됩니다.
+1. **Loan Application**: The customer applies for a loan.
+2. **Reception**: The responsible department receives the application.
+3. **Loan Approval Decision**: If approved, it is executed; if rejected, it is terminated.
+4. **Verification of Delinquency After Loan Execution**: After loan execution, delinquency status is checked at regular intervals.
+   - When delinquency occurs: Additional management is required.
+   - If there is no delinquency: It is maintained normally.
 
-#### 프로세스 흐름 상세 설명
-1. 고객이 대출을 신청하면, 이를 담당 부서에서 접수합니다.
-2. 심사를 거쳐 대출 승인 여부가 결정됩니다.
-3. 승인된 경우 대출이 실행되며, 이후 일정 주기로 연체 여부를 확인합니다.
-4. 연체가 발생하면, 서류 검토 후 연체 여부를 다시 확인합니다.
-   - 연체가 지속되면 추심 요청이 진행됩니다.
-   - 연체가 해결되면 정상 흐름을 유지합니다.
-5. 연체 상태가 계속되면 최종적으로 추심 절차가 진행됩니다.
+#### Detailed Process Flow Description
+1. When a customer applies for a loan, it is received by the responsible department.
+2. The loan approval decision is made after review.
+3. If approved, the loan is executed, and delinquency status is checked at regular intervals afterward.
+4. If delinquency occurs, documents are reviewed and delinquency status is checked again.
+   - If delinquency continues, a collection request is initiated.
+   - If delinquency is resolved, normal flow is maintained.
+5. If the delinquency status continues, the collection procedure is finally initiated.
 
-이 문서를 참고하여 uEngine6에서 대출 프로세스를 구성하고, 필요에 따라 조정해보세요.
+Refer to this document to configure the loan process in uEngine6 and adjust as needed.
 
-### 서브 프로세스를 활용한 프로세스 작성
+### Process Creation Using Subprocess
 
-이 프로세스에서는 **서브 프로세스**를 활용하여 대출 승인 프로세스를 보다 체계적이고 효율적으로 처리할 수 있도록 구성하였습니다.
+In this process, **subprocesses** are utilized to structure the loan approval process more systematically and efficiently.
 
 ![](../../uengine-image/process-writing_2.svg)
 
-#### 프로세스 동작 원리
+#### Process Operation Principle
 
 ![](../../uengine-image/process-writing_2_1.png)
 
-- 대출 승인 프로세스 부분에서 결재자가 많아질 경우 반복되는 결재 절차를 하나의 서브 프로세스로 구성하였습니다.
-- 결재 과정에서 한 명이라도 대출 반려를 하게 될 경우에는 대출 승인 프로세스를 종료하고 대출 반려 프로세스로 이동합니다.
+- When there are many approvers in the loan approval process, repeated approval procedures are organized into a single subprocess.
+- If even one person rejects the loan during the approval process, the loan approval process is terminated and moved to the loan rejection process.
 
-#### 서브 프로세스의 역할
-- 대출 승인 과정에서 **반복적으로 수행되는 승인 절차를 하나의 서브 프로세스로 구성**하여 관리가 용이하도록 하였습니다.
-- 승인 및 반려 여부를 결정하는 주요 프로세스를 **독립적인 단위로 분리**하여, 여러 프로세스에서 동일한 승인 절차를 재사용할 수 있습니다.
-- 변경 사항이 발생할 경우, 서브 프로세스만 수정하면 되어 **프로세스 유지보수성을 향상**시킬 수 있습니다.
+#### Role of Subprocess
+- In the loan approval process, **approval procedures that are repeatedly performed are organized into a single subprocess,** making them easier to manage.
+- The main process that determines approval and rejection is **separated into independent units,** allowing the same approval procedure to be reused in multiple processes.
+- If changes occur, only the subprocess needs to be modified, which can **improve process maintainability.**
 
-이를 통해 사용자에게는 **보다 일관된 승인 절차 제공**, **처리 속도 향상**, **업무 효율성 증대** 등의 효과를 줄 수 있습니다.
+This provides users with **more consistent approval procedures, improved processing speed, increased work efficiency,** and other effects.
 
-### 콜 액티비티(Call Activity)의 활용
+### Utilization of Call Activity
 
 ![](../../uengine-image/process-writing_3.svg)
 
-이 다이어그램은 앞서 정의된 대출 프로세스에서 호출된 **사후 관리(Call Activity)** 프로세스입니다. 대출 실행 이후 발생하는 연체 여부 확인, 유예 요청 처리 및 추심 절차를 포함하고 있으며, 콜 액티비티를 통해 별도의 프로세스로 관리됩니다.
+This diagram is the **post-management (Call Activity)** process called from the previously defined loan process. It includes delinquency verification, grace request processing, and collection procedures that occur after loan execution, and is managed as a separate process through call activity.
 
 ![](../../uengine-image/process-writing_4.svg)
 
-#### 콜 액티비티(Call Activity)란?
-- **콜 액티비티**는 다른 프로세스를 하위 프로세스로 호출하여 실행하는 BPMN 요소입니다.
-- 상위 프로세스와 분리하여 독립적으로 실행될 수 있으며, 여러 프로세스에서 공통적으로 사용할 수 있습니다.
-- **유지보수성과 재사용성을 높이는 역할**을 하며, 특정 업무 로직을 모듈화하는 데 유용합니다.
+#### What is Call Activity?
+- **Call Activity** is a BPMN element that calls and executes another process as a subprocess.
+- It can be executed independently, separate from the parent process, and can be commonly used in multiple processes.
+- It serves to **increase maintainability and reusability** and is useful for modularizing specific business logic.
 
-#### 이 프로세스에서의 콜 액티비티 역할
-- 대출 실행 이후 **사후 관리 프로세스를 별도로 실행**하기 위해 콜 액티비티를 사용하였습니다.
-- 주요 기능:
-  1. **서류 관리** - 대출 실행 이후 필요한 문서를 정리합니다.
-  2. **연체 확인** - 고객의 대출 연체 여부를 점검합니다.
-  3. **연체 여부 판단** - 연체가 발생하면 후속 절차를 진행합니다.
-  4. **상환 유예 요청 처리** - 고객이 상환 유예를 요청한 경우 이에 대한 프로세스를 수행합니다.
-  5. **추심 절차 진행** - 연체되었으나 유예 요청이 없는 경우, 추심을 진행합니다.
+#### Role of Call Activity in this Process
+- Call activity is used to **execute the post-management process separately** after loan execution.
+- Main functions:
+  1. **Document Management** - Organizes necessary documents after loan execution.
+  2. **Delinquency Verification** - Checks the customer's loan delinquency status.
+  3. **Delinquency Determination** - Initiates follow-up procedures if delinquency occurs.
+  4. **Grace Request Processing** - Performs the process for cases where customers request repayment grace.
+  5. **Collection Procedure Initiation** - Proceeds with collection if delinquent without a grace request.
 
-#### 콜 액티비티를 활용한 장점
-1. **독립적인 관리**  
-   - 대출 실행 프로세스와 사후 관리 프로세스를 분리하여 유지보수성을 향상시킵니다.
+#### Advantages of Using Call Activity
+1. **Independent Management**  
+   - Improves maintainability by separating loan execution process and post-management process.
    
-2. **재사용 가능**  
-   - 여러 대출 상품에 동일한 사후 관리 절차를 적용할 수 있습니다.
+2. **Reusable**  
+   - 여Can apply the same post-management procedure to multiple loan products.
 
-3. **변경 용이성**  
-   - 사후 관리 프로세스가 변경될 경우, 콜 액티비티를 수정하면 모든 연관 프로세스에 적용됩니다.
+3. **Ease of Change**  
+   - If the post-management process changes, modifying the call activity applies to all related processes.
 
-이처럼 콜 액티비티를 활용하면 특정 프로세스를 반복적으로 사용하면서도 독립적으로 유지할 수 있어 BPMN 기반 프로세스 설계에서 매우 유용한 기능을 제공합니다.
+As shown, utilizing call activity allows specific processes to be used repeatedly while maintaining independence, providing a very useful function in BPMN-based process design.
 

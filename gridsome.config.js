@@ -49,7 +49,16 @@ module.exports = {
             ]
           },
           {
-            title: '모델링 및 실행',
+            title: 'Deployment and Configuration Guide',
+            items: [
+              '/bpm6-deploy-config/',
+              '/bpm6-deploy-config/bpm6-account/',
+              '/bpm6-deploy-config/bpm6-deploy/',
+              '/bpm6-deploy-config/uengine3-migration/',
+            ]
+          },
+          {
+            title: 'Modeling and Execution',
             items: [
               '/bpm6-started/',
               '/bpm6-started/bpm6-modeling/',
@@ -72,7 +81,7 @@ module.exports = {
             ]
           },
           {
-            title: '운영 및 데이터관리',
+            title: 'Operations and Data Management',
             items: [
               '/bpm6-admin/',
               // '/bpm6-admin/bpm6-admin-instance/',
@@ -81,7 +90,7 @@ module.exports = {
             ]
           },
           {
-            title: '프로세스 API',
+            title: 'Process API',
             items: [
               '/bpm6-api/',
               '/bpm6-api/bpm6-message-listener/',
@@ -97,23 +106,16 @@ module.exports = {
           //   ]
           // },
           {
-            title: 'BPMN 프로젝트 예제',
+            title: 'BPMN Project Examples',
             items: [
               '/process-example/',
               // '/process-example/sub-process/',
               // '/process-example/call-activity/',
             ]
           },
+
           {
-            title: '배포 및 설정 가이드',
-            items: [
-              '/bpm6-deploy-config/',
-              '/bpm6-deploy-config/bpm6-deploy/',
-              '/bpm6-deploy-config/uengine3-migration/',
-            ]
-          },
-          {
-            title: '프로세스 자산 라이브러리(PAL)',
+            title: 'Process Asset Library (PAL)',
             items: [
               '/pal-edition/',
               '/pal-edition/process-definition-map/',
@@ -121,7 +123,7 @@ module.exports = {
             ]
           },
           {
-            title: '문의하기',
+            title: 'Contact & Licensing',
             items: [
               '/bpm6-contact/',
             ]
