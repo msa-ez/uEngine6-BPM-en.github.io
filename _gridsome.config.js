@@ -13,7 +13,7 @@ module.exports = {
     favicon: './src/assets/favicon.png',
     touchicon: './src/assets/favicon.png'
   },
-  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://intro.bpm-getting-started5.io'),
+  siteUrl: (process.env.SITE_URL ? process.env.SITE_URL : 'https://intro.msaez.io/uEngine6-BPM-en.github.io'),
   settings: {
     web: process.env.URL_WEB || false,
     twitter: process.env.URL_TWITTER || false,
