@@ -335,7 +335,7 @@ export default {
         },
         {
           title: 'Message-based system integration',
-          content: 'Method of integrating uEngine6 with external systems via REST API using BPMN&#039;s two Message Event Notations.',
+          content: 'Method of integrating uEngine6 with external systems via REST API using the two Message Event Notations of BPMN.',
           image: require('../../uengine-image/message.jpeg') // require 사용
         }
       ],

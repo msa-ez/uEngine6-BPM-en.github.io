@@ -6,13 +6,13 @@ sidebar: 'getting-started'
 # Running
 
 ## Project Preparation
-- **Project Clone**:Clone the uEngine project from GitHub.
+- **Clone Project**:Clone the uEngine project from GitHub.
 ```sh
 git clone https://github.com/uengine-oss/uEngine6.git
 ```
 
 ## Local Execution
-To run uEngine locally, a Kafka server is required for asynchronous communication. Therefore, you must first start the Kafka server.
+To run uEngine locally, a Kafka server is required for asynchronous communication. Therefore, you must first run the Kafka server.
 - Kafka server installation and execution
   - Visit https://kafka.apache.org/ to install and run.
 
@@ -63,7 +63,7 @@ docker compose down
 When uEngine is running properly, open a web browser and access the following URL to check the execution screen.
 
 
-- Process execution screen
+- You can check at : 
 http://localhost:8088/
 
 

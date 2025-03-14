@@ -33,7 +33,7 @@ You can use this account to log in to the Keycloak administrator page. After log
 
 ### Adding uEngine Client
 
-You can add an uEngine client to set up integration with uEngine6. Follow these steps to add a client
+You can add an uEngine client to set up integration with uEngine6. Follow these steps to add a client :
 
 Log in and click on clients from the screen
 
@@ -43,7 +43,7 @@ Click the Create button to open the settings screen
 
 ![](../../uengine-image/account_3.png)
 
-Set the name to uengine and click the Save button
+Set the name to **uengine** and click the Save button
 
 When successfully created, the client will be added as shown below
 ![](../../uengine-image/account_4.png)

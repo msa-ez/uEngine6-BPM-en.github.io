@@ -20,9 +20,9 @@ The modern business environment is rapidly evolving due to globalization and adv
 |Function-centric / Hierarchical|Process-centric / Decentralized|
 |Mass production of few varieties|Small-batch production of diverse products|
 
-During the industrial era of mass production, business organizations were structured based on Frederick Taylor’s **Scientific Management**, characterized by specialization and hierarchical functional structures. While this structure was effective for repetitive and standardized tasks, it has struggled to keep up with recent environmental changes such as shorter product life cycles, diverse consumer demands, market liberalization, and globalization. Modern business structures are evolving towards decentralization, greater autonomy in task execution, networked organizations, and lifelong learning. These trends align with the shift towards customer and process-centered organizational structures, where responsibility is shared across processes rather than confined to individual functions.
+During the industrial era of mass production, business organizations were structured based on Frederick Taylor’s **Scientific Management**, characterized by division of labor and hierarchical functional structures. While this structure was effective for repetitive and standardized tasks, it has struggled to keep up with recent environmental changes such as shorter product life cycles, diverse consumer demands, market liberalization, and globalization. Modern business structures are evolving towards decentralization, greater autonomy in task execution, networked organizations, and lifelong learning. These trends align with the shift towards customer and process-centered organizational structures, where responsibility is shared across processes rather than confined to individual functions.
 
-As businesses increasingly embrace process-centric organizations, understanding business processes becomes crucial. Before delving into business processes, it is important to define business systems. A business system is an organization that provides valuable outcomes to stakeholders interested in its outputs. Essentially, a business system is an economic entity that produces and sells goods or services to fulfill human needs while pursuing profit.<br>
+As businesses increasingly embrace process-centric organizations, understanding business processes becomes crucial. Before delving into business processes, it is important to define business systems. A business system is an organization that provides valuable outcomes to stakeholders interested in its outputs. Essentially, a business system is an economic entity that produces and sells goods or services to meet human needs while generating profit.<br>
 
 - **Key concepts in defining a business system**
   + A business process, which consists of activities performed within an enterprise.
@@ -30,14 +30,14 @@ As businesses increasingly embrace process-centric organizations, understanding 
   + Business objectives or outputs.
   + Rules that define or constrain the business environment.
   
-Corporate objectives are achieved through processes, which express the desired state of resources, and rules represent the accumulated knowledge within the enterprise. Among the concepts that define an enterprise system, business process is the most important, so what is a business process? Generally, a process can be defined as the processing procedure or flow of activities that transforms inputs into outputs.
+Business objectives are achieved through processes, which express the desired state of resources, and rules represent the accumulated knowledge within the enterprise. Among the concepts that define an enterprise system, business process is the most important, so what is a business process? Generally, a process can be defined as the processing procedure or flow of activities that transforms inputs into outputs.
 
 - **Classification of Processes within an Enterprise**
   + **Material Process**: The process of handling raw materials and components to provide finished products
-  + **Information Process**: The process of processing data to provide information
+  + **Information Process**: The process of processing data to generate information
   + **Business Process**: The process of handling transactions to achieve customer satisfaction
 
-Looking at the specific definition of a business process, a business process is a collection of interconnected unit tasks that begins with a specific event and creates a defined output for the process customer. The customer-oriented perspective is particularly important in processes, and customers are divided into internal and external customers. Process output is the reason for the existence of the business process and should be identifiable and quantifiable. And the unit tasks, which are components of the process, are interrelated, and these unit tasks are performed by appropriate personnel during the execution of the process.
+A business process is a set of interconnected tasks that starts with a specific event and produces a defined output for the process customer. The customer-oriented perspective is particularly important in processes, and customers are divided into internal and external customers. Process output is the reason for the existence of the business process and should be identifiable and quantifiable. And the unit tasks, which are components of the process, are interrelated, and these unit tasks are performed by appropriate personnel during the execution of the process.
 
 - **Attributes of Business Process**
   + **Definition**: It can be described.
@@ -53,13 +53,13 @@ The successful execution of business processes is essential for corporate surviv
  + It utilizes resources.
  + It consists of multiple activities performed in a specific sequence.
  + It impacts one or more organizational units and is more horizontal than hierarchical.
- + It delivers value to both internal and external customers.
+ + It provides value to both internal and external customers.
   
 With these characteristics, typical business processes include new product development processes, product or material ordering processes, insurance claim processing/payment processes, and order fulfillment processes from order to shipment. Additionally, business processes can be classified into three categories, which are as follows.
 
 - **Business Process Classification**
   + 1) Classification according to organizational units involved in the process
-      - Processes between different enterprise organizations
+      - Processes across different enterprises
       - Processes between departments within an enterprise
       - Processes between personnel within a department
   + 2) Classification according to the object being processed
@@ -71,12 +71,12 @@ With these characteristics, typical business processes include new product devel
 
 An example of an inter-enterprise process is the material procurement process, which involves two or more consumer and supplier organizations. In this case, the key is to reduce transaction costs and minimize transaction steps. An example of an interdepartmental process is new product development, where breaking down regional boundaries and ensuring simultaneity between tasks is crucial. An example of a process between personnel within a department is the loan approval process in a bank.
 
-An example of operational work is entering customer orders, where the key is improving the quality of outputs, reducing processing time, and cutting costs. An example of an administrative process is the budget preparation process, where enhancing analytical capabilities and expanding participant involvement are essential.
+An example of operational process is entering customer orders, where the key is improving the quality of outputs, reducing processing time, and cutting costs. An example of an administrative process is the budget preparation process, where enhancing analytical capabilities and expanding participant involvement are essential.
 
 
 ## 2. BPR(Business Process Reengineering)
 
-The recent rapid changes in the business environment can be summarized as a shift of power from suppliers to customers, competition between companies across national borders, and dramatic changes in technology and markets. BPR (Business Process Reengineering) means thoroughly analyzing existing processes and boldly redesigning them to achieve breakthrough improvements in company performance. In other words, BPR simplifies business processes to eliminate excessive delays and reduce high costs in business operations. In this way, by using BPR, companies can operate business processes that deliver better performance.
+The recent rapid changes in the business environment can be summarized as a shift of power from suppliers to customers, competition between companies across national borders, and dramatic changes in technology and markets. BPR (Business Process Reengineering) means thoroughly analyzing existing processes and boldly redesigning them to achieve breakthrough improvements in company performance. In other words, BPR streamlines business processes to eliminate unnecessary delays and reduce high costs in business operations. In this way, by using BPR, companies can operate business processes that deliver better performance.
 
 ![](../../uengine-image/1-1-image.png)
 
@@ -89,7 +89,7 @@ The BPR lifecycle consists of four major stages, as shown in Figure 1-1.<br>
 **Stage 3**: Reconstruct the system for the new process.<br>
 **Stage 4**: Operate the redesigned process using the reconstructed system.<br>
 
-This execution process is repetitive. In the diagnosis stage, an evaluation of the current process's KPIs (Key Performance Indicators) is conducted to analyze both the current and future situations, followed by simulations to predict future scenarios. In the redesign stage, new scenarios for the new process are modeled. In the reconstruction stage, the existing business processes are restructured, and the information systems are newly built to execute the newly designed process. Recently, key information technologies enabling BPR, such as workflow management systems and their extended concept of Business Process Management Systems (BPMS), are being actively introduced. Finally, in the operation stage, necessary management information is collected for execution instructions related to daily tasks and for future analysis.
+This execution process is iterative. In the diagnosis stage, an evaluation of the current process's KPIs (Key Performance Indicators) is conducted to analyze both the current and future situations, followed by simulations to predict future scenarios. In the redesign stage, new scenarios for the new process are modeled. In the reconstruction stage, the existing business processes are restructured, and the information systems are newly built to execute the newly designed process. Recently, essential technologies enabling BPR, such as workflow management systems and their extended form, Business Process Management Systems (BPMS), have been actively adopted. Finally, in the operation stage, necessary management information is collected for execution instructions related to daily tasks and for future analysis.
 <br><br>
 A concept that contrasts with BPR is CPI (Continuous Process Improvement). While BPR refers to fundamentally reanalyzing and boldly redesigning existing processes to achieve a breakthrough improvement in performance, CPI focuses on the gradual improvement of work processes and outputs over a long period.
 When comparing BPR and CPI from several aspects<br>
@@ -102,7 +102,7 @@ When comparing BPR and CPI from several aspects<br>
 - The involvement of organizational members differs: BPR is top-down, while CPI is bottom-up.<br>
 <br>
 
-Past experiences have shown that BPR projects fail when appropriate change management is not accompanied and when they rely solely on technical solutions. As shown in Figure 1-2, comparing BPR and CPI based on their occurrence frequency and the magnitude of impact, CPI has a smaller impact but occurs frequently, whereas BPR has a larger impact but occurs less frequently. However, CPI and BPR are not mutually exclusive; rather, they are complementary. In other words, after a certain level of gradual improvement through CPI, BPR, which involves a more intense change, is carried out. After a certain period, the process is complemented by gradual CPI improvements, as shown in Figure 1-3.
+Past experiences have shown that BPR projects fail when appropriate change management is not accompanied and when they rely solely on technical solutions. As shown in Figure 1-2, comparing BPR and CPI based on their occurrence frequency and the magnitude of impact, CPI has a smaller impact but occurs frequently, whereas BPR has a larger impact but occurs less frequently. However, CPI and BPR are not mutually exclusive; rather, they are complementary. In other words, after a certain level of gradual improvement through CPI, BPR, which involves a more intense change, is carried out. Over time, CPI gradually complements the process, as shown in Figure 1-3.
 
 >![](../../uengine-image/1-2-image.png)
 >**Figure 1-2) Comparison of BPR and CPI**
@@ -116,7 +116,7 @@ As mentioned above, the BPR life cycle consists of four stages. For the first tw
 
 ## 3. Business Modeling and Analysis
 
-In the BPR life cycle, to diagnose issues in the existing process and redesign the new process, it is essential to thoroughly analyze the current business. However, in practice, conducting various experiments to understand the business mechanisms through real-world operations is not easy. This is similar to the difficulty of predicting the causes and direction of a tornado by experimenting with an actual tornado. Therefore, to analyze the existing issues, we need alternatives that allow for various experiments, and we refer to this as a model. A model is a simplified representation of the complex real world, where irrelevant details are removed, and only the important aspects are focused on. Since the real world is too vast and complex to analyze in its entirety, we abstract or condense only the areas of interest to create a model. Examples of models we encounter in daily life include architectural blueprints or maps. Not all maps represent the entire real world in detail; for instance, contour maps focus only on elevation information. In other words, when we are interested in the elevation information of a specific location, we create a contour model.
+In the BPR life cycle, to diagnose issues in the existing process and redesign the process, it is essential to thoroughly analyze the current business. However, in practice, conducting various experiments to understand the business mechanisms through real-world operations is not easy. This is similar to the difficulty of predicting the causes and direction of a tornado by experimenting with an actual tornado. Therefore, to analyze the existing issues, we need alternatives that allow for various experiments, and we refer to this as a model. A model is a simplified representation of the complex real world, focusing only on the important aspects while removing irrelevant details. Since the real world is too vast and complex to analyze in its entirety, we abstract or condense only the areas of interest in order to create a model. Examples of models encountered in daily life include architectural blueprints or maps. Not all maps represent the entire real world in detail; for instance, contour maps focus only on elevation information. In other words, when we are interested in the elevation information of a specific location, we create a contour model.
 
 >![](../../uengine-image/1-4-image.png)
 >**Figure 1-4) Real World and Model**
@@ -128,7 +128,7 @@ The target of the model can be a house, a machine, or an information system, amo
 - Establishment of rigorous resource management policies<br>
 - Maintenance of an appropriate organizational structure<br>
 
-To achieve this, it is necessary to understand the components of the business and their relationships, and a business model is required as a means to manage complexity.<br>
+Achieving this requires understanding the components of the business and their relationships, and a business model is necessary to manage complexity.<br>
 
 - Reasons for Business Process Modeling<br>
   + **Mechanism**: To understand the key mechanisms of the current processes.<br>
